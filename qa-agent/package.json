@@ -1,0 +1,20 @@
+{
+  "name": "bloom-qa-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QA Agent for automated code review and quality assurance of the Bloom app",
+  "scripts": {
+    "qa": "ts-node index.ts",
+    "qa:quick": "ts-node index.ts --quick",
+    "qa:full": "ts-node index.ts --full"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.0",
+    "typescript": "~5.3.0",
+    "@types/node": "^20.0.0"
+  }
+}

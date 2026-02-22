@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Bloom",
+    "slug": "bloom-postpartum-care",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "bloom",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F8E8EE"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bloom.postpartumcare"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F8E8EE"
+      },
+      "package": "com.bloom.postpartumcare"
+    },
+    "plugins": ["expo-router", "expo-secure-store"]
+  }
+}
