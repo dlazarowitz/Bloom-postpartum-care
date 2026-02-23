@@ -82,7 +82,7 @@ export default function GamePlayScreen() {
 
   // ── Initialize game ──
   useEffect(() => {
-    gameStateRef.current = initGame(heroId || 'zhao_yun');
+    gameStateRef.current = initGame(heroId || 'varen');
     lastTimeRef.current = Date.now();
     startGameLoop();
     return () => {

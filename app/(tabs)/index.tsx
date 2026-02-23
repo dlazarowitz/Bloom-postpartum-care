@@ -71,7 +71,7 @@ const quickActions: QuickAction[] = [
   },
   {
     title: 'Arena Battle',
-    description: 'MOBA arena game inspired by Honor of Kings',
+    description: 'Team arena battle game with heroes and abilities',
     icon: 'game-controller',
     backgroundColor: '#2a1a3a',
     route: '/game',
