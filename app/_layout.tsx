@@ -31,6 +31,10 @@ export default function RootLayout() {
           name="mood-check"
           options={{ title: 'Mood Check-In', presentation: 'modal' }}
         />
+        <Stack.Screen
+          name="game"
+          options={{ headerShown: false }}
+        />
       </Stack>
     </>
   );
