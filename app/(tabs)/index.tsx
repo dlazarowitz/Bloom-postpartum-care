@@ -69,6 +69,13 @@ const quickActions: QuickAction[] = [
     backgroundColor: colors.warning + '20',
     route: '/mood-check',
   },
+  {
+    title: 'Arena Battle',
+    description: 'MOBA arena game inspired by Honor of Kings',
+    icon: 'game-controller',
+    backgroundColor: '#2a1a3a',
+    route: '/game',
+  },
 ];
 
 export default function HomeScreen() {
