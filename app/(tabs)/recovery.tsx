@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../../src/contexts/ThemeContext';
 import {
-  colors,
   spacing,
   borderRadius,
   fontSize,
@@ -28,31 +28,33 @@ interface RecoveryPath {
   backgroundColor: string;
 }
 
-const recoveryPaths: RecoveryPath[] = [
-  {
-    title: 'Vaginal Delivery Recovery',
-    description:
-      'A comprehensive guide to healing after vaginal birth. Learn about perineal care, pelvic floor recovery, managing discomfort, and when to resume daily activities safely.',
-    timeline: '6–8 weeks',
-    icon: 'flower',
-    route: '/recovery/vaginal',
-    accentColor: colors.primary,
-    backgroundColor: colors.primaryLight,
-  },
-  {
-    title: 'C-Section Recovery',
-    description:
-      'Recovery guidance after a major abdominal surgery. Covers incision care, safe movement techniques, pain management, and gradual return to physical activity.',
-    timeline: '8–12 weeks',
-    icon: 'medkit',
-    route: '/recovery/csection',
-    accentColor: colors.secondary,
-    backgroundColor: colors.secondaryLight,
-  },
-];
-
 export default function RecoveryScreen() {
   const router = useRouter();
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+
+  const recoveryPaths: RecoveryPath[] = [
+    {
+      title: 'Vaginal Delivery Recovery',
+      description:
+        'A comprehensive guide to healing after vaginal birth. Learn about perineal care, pelvic floor recovery, managing discomfort, and when to resume daily activities safely.',
+      timeline: '6–8 weeks',
+      icon: 'flower',
+      route: '/recovery/vaginal',
+      accentColor: colors.primary,
+      backgroundColor: colors.primaryLight,
+    },
+    {
+      title: 'C-Section Recovery',
+      description:
+        'Recovery guidance after a major abdominal surgery. Covers incision care, safe movement techniques, pain management, and gradual return to physical activity.',
+      timeline: '8–12 weeks',
+      icon: 'medkit',
+      route: '/recovery/csection',
+      accentColor: colors.secondary,
+      backgroundColor: colors.secondaryLight,
+    },
+  ];
 
   const handleViewGuide = (route: string) => {
     router.push(route as any);
@@ -140,110 +142,112 @@ export default function RecoveryScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.xl,
-    paddingBottom: spacing.xxl,
-  },
-  header: {
-    marginBottom: spacing.xl,
-  },
-  title: {
-    fontSize: fontSize.xxl,
-    fontWeight: fontWeight.bold as any,
-    color: colors.primary,
-    marginBottom: spacing.sm,
-  },
-  subtitle: {
-    fontSize: fontSize.md,
-    color: colors.textSecondary,
-    lineHeight: 22,
-  },
-  card: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.lg,
-    marginBottom: spacing.lg,
-    borderLeftWidth: 4,
-    ...shadows.md,
-  },
-  cardIconContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: borderRadius.full,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.md,
-  },
-  cardTitle: {
-    fontSize: fontSize.xl,
-    fontWeight: fontWeight.bold as any,
-    color: colors.text,
-    marginBottom: spacing.sm,
-  },
-  cardDescription: {
-    fontSize: fontSize.md,
-    color: colors.textSecondary,
-    lineHeight: 22,
-    marginBottom: spacing.md,
-  },
-  timelineContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    borderRadius: borderRadius.md,
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-    marginBottom: spacing.lg,
-    alignSelf: 'flex-start',
-  },
-  timelineText: {
-    fontSize: fontSize.sm,
-    color: colors.textSecondary,
-    fontWeight: fontWeight.medium as any,
-    marginLeft: spacing.xs,
-  },
-  viewGuideButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: borderRadius.md,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
-  },
-  viewGuideButtonText: {
-    fontSize: fontSize.md,
-    fontWeight: fontWeight.semibold as any,
-    color: colors.surface,
-    marginRight: spacing.sm,
-  },
-  noteContainer: {
-    flexDirection: 'row',
-    backgroundColor: colors.info + '15',
-    borderRadius: borderRadius.lg,
-    padding: spacing.lg,
-    marginTop: spacing.sm,
-    alignItems: 'flex-start',
-    borderWidth: 1,
-    borderColor: colors.info + '30',
-  },
-  noteIcon: {
-    marginRight: spacing.sm,
-    marginTop: 2,
-  },
-  noteText: {
-    flex: 1,
-    fontSize: fontSize.sm,
-    color: colors.textSecondary,
-    lineHeight: 20,
-    fontWeight: fontWeight.medium as any,
-  },
-});
+function makeStyles(colors: any) {
+  return StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    container: {
+      flex: 1,
+    },
+    contentContainer: {
+      paddingHorizontal: spacing.lg,
+      paddingTop: spacing.xl,
+      paddingBottom: spacing.xxl,
+    },
+    header: {
+      marginBottom: spacing.xl,
+    },
+    title: {
+      fontSize: fontSize.xxl,
+      fontWeight: fontWeight.bold as any,
+      color: colors.primary,
+      marginBottom: spacing.sm,
+    },
+    subtitle: {
+      fontSize: fontSize.md,
+      color: colors.textSecondary,
+      lineHeight: 22,
+    },
+    card: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.lg,
+      marginBottom: spacing.lg,
+      borderLeftWidth: 4,
+      ...shadows.md,
+    },
+    cardIconContainer: {
+      width: 60,
+      height: 60,
+      borderRadius: borderRadius.full,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: spacing.md,
+    },
+    cardTitle: {
+      fontSize: fontSize.xl,
+      fontWeight: fontWeight.bold as any,
+      color: colors.text,
+      marginBottom: spacing.sm,
+    },
+    cardDescription: {
+      fontSize: fontSize.md,
+      color: colors.textSecondary,
+      lineHeight: 22,
+      marginBottom: spacing.md,
+    },
+    timelineContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.background,
+      borderRadius: borderRadius.md,
+      paddingVertical: spacing.sm,
+      paddingHorizontal: spacing.md,
+      marginBottom: spacing.lg,
+      alignSelf: 'flex-start',
+    },
+    timelineText: {
+      fontSize: fontSize.sm,
+      color: colors.textSecondary,
+      fontWeight: fontWeight.medium as any,
+      marginLeft: spacing.xs,
+    },
+    viewGuideButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: borderRadius.md,
+      paddingVertical: spacing.md,
+      paddingHorizontal: spacing.lg,
+    },
+    viewGuideButtonText: {
+      fontSize: fontSize.md,
+      fontWeight: fontWeight.semibold as any,
+      color: colors.surface,
+      marginRight: spacing.sm,
+    },
+    noteContainer: {
+      flexDirection: 'row',
+      backgroundColor: colors.info + '15',
+      borderRadius: borderRadius.lg,
+      padding: spacing.lg,
+      marginTop: spacing.sm,
+      alignItems: 'flex-start',
+      borderWidth: 1,
+      borderColor: colors.info + '30',
+    },
+    noteIcon: {
+      marginRight: spacing.sm,
+      marginTop: 2,
+    },
+    noteText: {
+      flex: 1,
+      fontSize: fontSize.sm,
+      color: colors.textSecondary,
+      lineHeight: 20,
+      fontWeight: fontWeight.medium as any,
+    },
+  });
+}
