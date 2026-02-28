@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
 import { useAppStore } from '../../src/store/useAppStore';
 import { babyMilestones } from '../../src/data/milestones';
 
@@ -52,9 +53,12 @@ function getAgeRangeLabel(weeks: [number, number]): string {
 }
 
 export default function TrackerScreen() {
+  const { colors } = useTheme();
   const [selectedTab, setSelectedTab] = useState<TabName>('feeding');
   const [activeSleepId, setActiveSleepId] = useState<string | null>(null);
   const router = useRouter();
+
+  const styles = makeStyles(colors);
 
   const {
     feedingEntries,
@@ -544,7 +548,8 @@ export default function TrackerScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+function makeStyles(colors: any) {
+  return StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.background,
@@ -810,4 +815,5 @@ const styles = StyleSheet.create({
     fontWeight: fontWeight.medium,
     marginTop: 2,
   },
-});
+  });
+}

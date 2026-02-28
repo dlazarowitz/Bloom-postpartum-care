@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
 import { postpartumRecipes, weeklyMealPlan } from '../../src/data/recipes';
 import { groceryStores } from '../../src/data/grocery-stores';
 
@@ -23,6 +24,8 @@ function getRecipeTitle(recipeId: string): string {
 }
 
 export default function MealsScreen() {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const router = useRouter();
   const [mealPlanExpanded, setMealPlanExpanded] = useState(false);
   const [expandedDay, setExpandedDay] = useState<number | null>(null);
@@ -271,7 +274,8 @@ export default function MealsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+function makeStyles(colors: any) {
+  return StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.background,
@@ -488,4 +492,5 @@ const styles = StyleSheet.create({
     fontWeight: fontWeight.semibold as any,
     color: '#FFFFFF',
   },
-});
+  });
+}

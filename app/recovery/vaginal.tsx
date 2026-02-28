@@ -8,12 +8,15 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
 import { vaginalRecoveryGuide } from '../../src/data/recovery-vaginal';
 
 type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 
 export default function VaginalRecoveryScreen() {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const guide = vaginalRecoveryGuide;
   const [expandedMilestone, setExpandedMilestone] = useState<string | null>(guide.milestones[0]?.id ?? null);
 
@@ -115,88 +118,90 @@ export default function VaginalRecoveryScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
-  content: { padding: spacing.md },
-  overviewCard: {
-    backgroundColor: colors.primaryBg,
-    borderRadius: borderRadius.lg,
-    padding: spacing.lg,
-    marginBottom: spacing.lg,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.primary,
-  },
-  overviewText: { fontSize: fontSize.md, color: colors.text, lineHeight: 24 },
-  sectionTitle: {
-    fontSize: fontSize.xl,
-    fontWeight: fontWeight.bold,
-    color: colors.text,
-    marginBottom: spacing.md,
-    marginTop: spacing.lg,
-  },
-  milestoneCard: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    marginBottom: spacing.md,
-    ...shadows.md,
-    overflow: 'hidden',
-  },
-  milestoneHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: spacing.md,
-  },
-  milestoneHeaderLeft: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  weekBadge: {
-    backgroundColor: colors.primary,
-    borderRadius: borderRadius.full,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
-  weekBadgeText: { fontSize: fontSize.xs, fontWeight: fontWeight.semibold, color: colors.textOnPrimary },
-  milestoneTitle: { fontSize: fontSize.lg, fontWeight: fontWeight.semibold, color: colors.text, flex: 1 },
-  milestoneBody: { padding: spacing.md, paddingTop: 0 },
-  milestoneDescription: { fontSize: fontSize.md, color: colors.textSecondary, lineHeight: 22, marginBottom: spacing.md },
-  tipCard: {
-    backgroundColor: colors.surfaceSecondary,
-    borderRadius: borderRadius.md,
-    padding: spacing.md,
-    marginBottom: spacing.sm,
-  },
-  tipHeader: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
-  tipTitle: { fontSize: fontSize.md, fontWeight: fontWeight.semibold, color: colors.text },
-  tipDescription: { fontSize: fontSize.sm, color: colors.textSecondary, lineHeight: 20 },
-  warningBox: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    backgroundColor: colors.warning + '15',
-    borderRadius: borderRadius.sm,
-    padding: spacing.sm,
-    marginTop: spacing.sm,
-  },
-  warningText: { fontSize: fontSize.sm, color: colors.text, flex: 1, lineHeight: 18 },
-  doctorCard: {
-    backgroundColor: colors.error + '10',
-    borderRadius: borderRadius.md,
-    padding: spacing.md,
-    marginTop: spacing.sm,
-    borderWidth: 1,
-    borderColor: colors.error + '30',
-  },
-  doctorHeader: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.sm },
-  doctorTitle: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.error },
-  doctorItem: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm, marginBottom: spacing.xs },
-  doctorBullet: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.error, width: 16, textAlign: 'center' },
-  doctorText: { fontSize: fontSize.sm, color: colors.text, flex: 1, lineHeight: 20 },
-  listCard: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    ...shadows.sm,
-  },
-  listItem: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm, marginBottom: spacing.sm },
-  listText: { fontSize: fontSize.md, color: colors.text, flex: 1, lineHeight: 22 },
-  bottomSpacer: { height: spacing.xxl },
-});
+function makeStyles(colors: any) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: colors.background },
+    content: { padding: spacing.md },
+    overviewCard: {
+      backgroundColor: colors.primaryBg,
+      borderRadius: borderRadius.lg,
+      padding: spacing.lg,
+      marginBottom: spacing.lg,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.primary,
+    },
+    overviewText: { fontSize: fontSize.md, color: colors.text, lineHeight: 24 },
+    sectionTitle: {
+      fontSize: fontSize.xl,
+      fontWeight: fontWeight.bold,
+      color: colors.text,
+      marginBottom: spacing.md,
+      marginTop: spacing.lg,
+    },
+    milestoneCard: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      marginBottom: spacing.md,
+      ...shadows.md,
+      overflow: 'hidden',
+    },
+    milestoneHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: spacing.md,
+    },
+    milestoneHeaderLeft: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+    weekBadge: {
+      backgroundColor: colors.primary,
+      borderRadius: borderRadius.full,
+      paddingHorizontal: spacing.sm,
+      paddingVertical: spacing.xs,
+    },
+    weekBadgeText: { fontSize: fontSize.xs, fontWeight: fontWeight.semibold, color: colors.textOnPrimary },
+    milestoneTitle: { fontSize: fontSize.lg, fontWeight: fontWeight.semibold, color: colors.text, flex: 1 },
+    milestoneBody: { padding: spacing.md, paddingTop: 0 },
+    milestoneDescription: { fontSize: fontSize.md, color: colors.textSecondary, lineHeight: 22, marginBottom: spacing.md },
+    tipCard: {
+      backgroundColor: colors.surfaceSecondary,
+      borderRadius: borderRadius.md,
+      padding: spacing.md,
+      marginBottom: spacing.sm,
+    },
+    tipHeader: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
+    tipTitle: { fontSize: fontSize.md, fontWeight: fontWeight.semibold, color: colors.text },
+    tipDescription: { fontSize: fontSize.sm, color: colors.textSecondary, lineHeight: 20 },
+    warningBox: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      gap: spacing.sm,
+      backgroundColor: colors.warning + '15',
+      borderRadius: borderRadius.sm,
+      padding: spacing.sm,
+      marginTop: spacing.sm,
+    },
+    warningText: { fontSize: fontSize.sm, color: colors.text, flex: 1, lineHeight: 18 },
+    doctorCard: {
+      backgroundColor: colors.error + '10',
+      borderRadius: borderRadius.md,
+      padding: spacing.md,
+      marginTop: spacing.sm,
+      borderWidth: 1,
+      borderColor: colors.error + '30',
+    },
+    doctorHeader: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.sm },
+    doctorTitle: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.error },
+    doctorItem: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm, marginBottom: spacing.xs },
+    doctorBullet: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.error, width: 16, textAlign: 'center' },
+    doctorText: { fontSize: fontSize.sm, color: colors.text, flex: 1, lineHeight: 20 },
+    listCard: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      ...shadows.sm,
+    },
+    listItem: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm, marginBottom: spacing.sm },
+    listText: { fontSize: fontSize.md, color: colors.text, flex: 1, lineHeight: 22 },
+    bottomSpacer: { height: spacing.xxl },
+  });
+}

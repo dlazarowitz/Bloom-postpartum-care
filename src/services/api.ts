@@ -50,6 +50,7 @@ export async function streamChat(
 
     const decoder = new TextDecoder();
     let buffer = '';
+    let doneReceived = false;
 
     while (true) {
       const { done, value } = await reader.read();
@@ -61,17 +62,24 @@ export async function streamChat(
 
       for (const line of lines) {
         if (line.startsWith('data: ')) {
-          const data = JSON.parse(line.slice(6));
-          if (data.done) {
-            onDone();
-          } else if (data.text) {
-            onToken(data.text);
+          try {
+            const data = JSON.parse(line.slice(6));
+            if (data.done) {
+              doneReceived = true;
+              onDone();
+            } else if (data.text) {
+              onToken(data.text);
+            }
+          } catch {
+            // Skip malformed SSE data
           }
         }
       }
     }
 
-    onDone();
+    if (!doneReceived) {
+      onDone();
+    }
   } catch (error) {
     onError(error instanceof Error ? error.message : 'Connection error');
   }

@@ -1,10 +1,13 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, fontSize } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
+import { fontSize } from '../../src/utils/theme';
 
 type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 
 export default function TabLayout() {
+  const { colors } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
@@ -35,20 +38,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="recovery"
+        name="tracker"
         options={{
-          title: 'Recovery',
+          title: 'Tracker',
           tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={'heart' as IoniconsName} size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="checklist"
-        options={{
-          title: 'Checklist',
-          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={'checkbox' as IoniconsName} size={size} color={color} />
+            <Ionicons name={'analytics' as IoniconsName} size={size} color={color} />
           ),
         }}
       />
@@ -62,21 +56,50 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="meals"
+        name="care-team"
         options={{
-          title: 'Meals',
+          title: 'Care Team',
           tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={'restaurant' as IoniconsName} size={size} color={color} />
+            <Ionicons name={'people' as IoniconsName} size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="tracker"
+        name="insights"
         options={{
-          title: 'Tracker',
+          title: 'Insights',
           tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name={'analytics' as IoniconsName} size={size} color={color} />
+            <Ionicons name={'stats-chart' as IoniconsName} size={size} color={color} />
           ),
+        }}
+      />
+      {/* These tabs are accessible from home but hidden from the tab bar */}
+      <Tabs.Screen
+        name="recovery"
+        options={{
+          href: null,
+          title: 'Recovery',
+        }}
+      />
+      <Tabs.Screen
+        name="checklist"
+        options={{
+          href: null,
+          title: 'Checklist',
+        }}
+      />
+      <Tabs.Screen
+        name="meals"
+        options={{
+          href: null,
+          title: 'Meals',
+        }}
+      />
+      <Tabs.Screen
+        name="library"
+        options={{
+          href: null,
+          title: 'Library',
         }}
       />
     </Tabs>

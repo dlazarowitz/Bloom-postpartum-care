@@ -3,9 +3,11 @@
  *
  * A soft, warm color palette that feels nurturing and calming —
  * appropriate for an app supporting new parents during a vulnerable time.
+ *
+ * Supports both light and dark mode via lightColors / darkColors exports.
  */
 
-export const colors = {
+export const lightColors = {
   // Primary palette — soft pinks and rose tones
   primary: '#D4869C',
   primaryLight: '#F0C4D0',
@@ -60,6 +62,67 @@ export const colors = {
   mood4: '#7BA88E', // Good
   mood5: '#6AAF7D', // Great
 };
+
+export const darkColors: typeof lightColors = {
+  // Primary palette — slightly brighter for dark backgrounds
+  primary: '#E093A9',
+  primaryLight: '#C77D95',
+  primaryDark: '#F0A8BD',
+  primaryBg: '#2E1F27',
+
+  // Secondary palette — brighter sage/green
+  secondary: '#8DBFA0',
+  secondaryLight: '#6A9B7E',
+  secondaryDark: '#A8D4B8',
+  secondaryBg: '#1F2E24',
+
+  // Accent — brighter warm gold
+  accent: '#E0B87A',
+  accentLight: '#9E8258',
+  accentDark: '#F0CC94',
+
+  // Neutrals — deep navy tones
+  background: '#1A1A2E',
+  surface: '#242440',
+  surfaceSecondary: '#2D2D4A',
+  border: '#3D3D5C',
+  borderLight: '#333356',
+
+  // Text — warm off-whites
+  text: '#F0EDE8',
+  textSecondary: '#A8A4B8',
+  textMuted: '#7B7890',
+  textOnPrimary: '#FFFFFF',
+
+  // Semantic — slightly brighter for visibility on dark
+  success: '#7CC492',
+  warning: '#F0C85C',
+  error: '#E07E7E',
+  info: '#7EB0E0',
+
+  // Category colors — same as light mode
+  feeding: '#D4869C',
+  diapering: '#7BA88E',
+  sleeping: '#8B7EC8',
+  bathing: '#6B9FD4',
+  clothing: '#D4A76A',
+  health: '#D46B6B',
+  travel: '#4AAFB8',
+  nursery: '#8B7EC8',
+  postpartum_mom: '#D4869C',
+
+  // Mood colors (1-5 scale) — same as light mode
+  mood1: '#D46B6B', // Struggling
+  mood2: '#D4A76A', // Tough
+  mood3: '#E8B84B', // Okay
+  mood4: '#7BA88E', // Good
+  mood5: '#6AAF7D', // Great
+};
+
+/** @deprecated Use `lightColors` or import from `useTheme()` instead. Kept for backwards compatibility. */
+export const colors = lightColors;
+
+export type ThemeColors = typeof lightColors;
 
 export const spacing = {
   xs: 4,

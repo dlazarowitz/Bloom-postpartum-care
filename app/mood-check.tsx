@@ -8,9 +8,9 @@ import {
   SafeAreaView,
   Linking,
 } from 'react-native';
-import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../src/utils/theme';
+import { useTheme } from '../src/contexts/ThemeContext';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../src/utils/theme';
 import { epdsQuestions, getScreeningRecommendation, emergencyResources } from '../src/data/mood-screening';
 import { useAppStore } from '../src/store/useAppStore';
 
@@ -19,11 +19,13 @@ type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 type ScreenState = 'intro' | 'screening' | 'results' | 'quick-mood';
 
 const moodEmojis = ['Struggling', 'Tough', 'Okay', 'Good', 'Great'] as const;
-const moodColors = [colors.mood1, colors.mood2, colors.mood3, colors.mood4, colors.mood5];
 
 export default function MoodCheckScreen() {
-  const router = useRouter();
+  const { colors } = useTheme();
   const addMoodEntry = useAppStore((s) => s.addMoodEntry);
+
+  const moodColors = [colors.mood1, colors.mood2, colors.mood3, colors.mood4, colors.mood5];
+  const styles = makeStyles(colors);
   const [screenState, setScreenState] = useState<ScreenState>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -266,7 +268,8 @@ export default function MoodCheckScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+function makeStyles(colors: any) {
+  return StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.md, paddingBottom: spacing.xxl },
   introHeader: { alignItems: 'center', paddingVertical: spacing.xl, gap: spacing.sm },
@@ -391,4 +394,5 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   primaryButtonText: { fontSize: fontSize.lg, fontWeight: fontWeight.semibold, color: colors.textOnPrimary },
-});
+  });
+}

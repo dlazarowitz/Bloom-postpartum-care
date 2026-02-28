@@ -10,13 +10,16 @@ import {
 } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
 import { postpartumRecipes } from '../../src/data/recipes';
 import { groceryStores } from '../../src/data/grocery-stores';
 
 type IoniconsName = React.ComponentProps<typeof Ionicons>['name'];
 
 export default function RecipeDetailScreen() {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const { id } = useLocalSearchParams<{ id: string }>();
   const recipe = postpartumRecipes.find((r) => r.id === id);
 
@@ -160,103 +163,105 @@ export default function RecipeDetailScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
-  content: { padding: spacing.md },
-  notFound: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: spacing.xxl },
-  notFoundText: { fontSize: fontSize.lg, color: colors.textMuted, marginTop: spacing.md },
-  title: { fontSize: fontSize.title, fontWeight: fontWeight.bold, color: colors.text, marginBottom: spacing.sm },
-  description: { fontSize: fontSize.md, color: colors.textSecondary, lineHeight: 24, marginBottom: spacing.lg },
-  metaBar: {
-    flexDirection: 'row',
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    ...shadows.sm,
-    marginBottom: spacing.md,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  metaItem: { alignItems: 'center', gap: 2 },
-  metaLabel: { fontSize: fontSize.xs, color: colors.textMuted },
-  metaValue: { fontSize: fontSize.md, fontWeight: fontWeight.semibold, color: colors.text },
-  metaDivider: { width: 1, height: 32, backgroundColor: colors.borderLight },
-  tagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginBottom: spacing.lg },
-  tag: {
-    backgroundColor: colors.primaryLight + '60',
-    borderRadius: borderRadius.full,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
-  tagText: { fontSize: fontSize.xs, color: colors.primaryDark, fontWeight: fontWeight.medium },
-  benefitsCard: {
-    backgroundColor: colors.secondaryBg,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    marginBottom: spacing.lg,
-  },
-  benefitsTitle: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.secondaryDark, marginBottom: spacing.sm },
-  benefitRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
-  benefitText: { fontSize: fontSize.sm, color: colors.text },
-  sectionTitle: {
-    fontSize: fontSize.xl,
-    fontWeight: fontWeight.bold,
-    color: colors.text,
-    marginBottom: spacing.md,
-    marginTop: spacing.sm,
-  },
-  ingredientsCard: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    ...shadows.sm,
-    marginBottom: spacing.lg,
-  },
-  ingredientRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.sm },
-  categoryDot: { width: 8, height: 8, borderRadius: 4 },
-  ingredientAmount: { fontSize: fontSize.sm, fontWeight: fontWeight.semibold, color: colors.text, minWidth: 70 },
-  ingredientName: { fontSize: fontSize.sm, color: colors.textSecondary, flex: 1 },
-  optionalText: { fontStyle: 'italic' },
-  instructionsCard: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    ...shadows.sm,
-    marginBottom: spacing.lg,
-  },
-  stepRow: { flexDirection: 'row', gap: spacing.md, marginBottom: spacing.md },
-  stepNumber: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 2,
-  },
-  stepNumberText: { fontSize: fontSize.sm, fontWeight: fontWeight.bold, color: colors.textOnPrimary },
-  stepText: { fontSize: fontSize.md, color: colors.text, lineHeight: 24, flex: 1 },
-  nutritionCard: {
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    padding: spacing.md,
-    ...shadows.sm,
-    marginBottom: spacing.lg,
-  },
-  nutritionRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
-  nutritionText: { fontSize: fontSize.sm, color: colors.text },
-  storeScroll: { marginBottom: spacing.lg },
-  storeChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-    borderWidth: 1.5,
-    borderRadius: borderRadius.full,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    marginRight: spacing.sm,
-    backgroundColor: colors.surface,
-  },
-  storeChipText: { fontSize: fontSize.sm, fontWeight: fontWeight.medium },
-  bottomSpacer: { height: spacing.xxl },
-});
+function makeStyles(colors: any) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: colors.background },
+    content: { padding: spacing.md },
+    notFound: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: spacing.xxl },
+    notFoundText: { fontSize: fontSize.lg, color: colors.textMuted, marginTop: spacing.md },
+    title: { fontSize: fontSize.title, fontWeight: fontWeight.bold, color: colors.text, marginBottom: spacing.sm },
+    description: { fontSize: fontSize.md, color: colors.textSecondary, lineHeight: 24, marginBottom: spacing.lg },
+    metaBar: {
+      flexDirection: 'row',
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      ...shadows.sm,
+      marginBottom: spacing.md,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    metaItem: { alignItems: 'center', gap: 2 },
+    metaLabel: { fontSize: fontSize.xs, color: colors.textMuted },
+    metaValue: { fontSize: fontSize.md, fontWeight: fontWeight.semibold, color: colors.text },
+    metaDivider: { width: 1, height: 32, backgroundColor: colors.borderLight },
+    tagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginBottom: spacing.lg },
+    tag: {
+      backgroundColor: colors.primaryLight + '60',
+      borderRadius: borderRadius.full,
+      paddingHorizontal: spacing.sm,
+      paddingVertical: spacing.xs,
+    },
+    tagText: { fontSize: fontSize.xs, color: colors.primaryDark, fontWeight: fontWeight.medium },
+    benefitsCard: {
+      backgroundColor: colors.secondaryBg,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      marginBottom: spacing.lg,
+    },
+    benefitsTitle: { fontSize: fontSize.md, fontWeight: fontWeight.bold, color: colors.secondaryDark, marginBottom: spacing.sm },
+    benefitRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
+    benefitText: { fontSize: fontSize.sm, color: colors.text },
+    sectionTitle: {
+      fontSize: fontSize.xl,
+      fontWeight: fontWeight.bold,
+      color: colors.text,
+      marginBottom: spacing.md,
+      marginTop: spacing.sm,
+    },
+    ingredientsCard: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      ...shadows.sm,
+      marginBottom: spacing.lg,
+    },
+    ingredientRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.sm },
+    categoryDot: { width: 8, height: 8, borderRadius: 4 },
+    ingredientAmount: { fontSize: fontSize.sm, fontWeight: fontWeight.semibold, color: colors.text, minWidth: 70 },
+    ingredientName: { fontSize: fontSize.sm, color: colors.textSecondary, flex: 1 },
+    optionalText: { fontStyle: 'italic' },
+    instructionsCard: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      ...shadows.sm,
+      marginBottom: spacing.lg,
+    },
+    stepRow: { flexDirection: 'row', gap: spacing.md, marginBottom: spacing.md },
+    stepNumber: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      backgroundColor: colors.primary,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 2,
+    },
+    stepNumberText: { fontSize: fontSize.sm, fontWeight: fontWeight.bold, color: colors.textOnPrimary },
+    stepText: { fontSize: fontSize.md, color: colors.text, lineHeight: 24, flex: 1 },
+    nutritionCard: {
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      padding: spacing.md,
+      ...shadows.sm,
+      marginBottom: spacing.lg,
+    },
+    nutritionRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: spacing.xs },
+    nutritionText: { fontSize: fontSize.sm, color: colors.text },
+    storeScroll: { marginBottom: spacing.lg },
+    storeChip: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.xs,
+      borderWidth: 1.5,
+      borderRadius: borderRadius.full,
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.sm,
+      marginRight: spacing.sm,
+      backgroundColor: colors.surface,
+    },
+    storeChipText: { fontSize: fontSize.sm, fontWeight: fontWeight.medium },
+    bottomSpacer: { height: spacing.xxl },
+  });
+}

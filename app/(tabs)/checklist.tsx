@@ -9,7 +9,8 @@ import {
   SectionList,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
 import { babyChecklist } from '../../src/data/baby-checklist';
 import { useAppStore } from '../../src/store/useAppStore';
 import { ChecklistSection, ChecklistItem } from '../../src/types';
@@ -39,7 +40,7 @@ function getSectionIcon(sectionId: string): keyof typeof Ionicons.glyphMap {
   return SECTION_ICONS.default;
 }
 
-function getPriorityColor(priority: string): string {
+function getPriorityColor(priority: string, colors: any): string {
   switch (priority) {
     case 'essential':
       return colors.error;
@@ -66,6 +67,8 @@ function getPriorityLabel(priority: string): string {
 }
 
 export default function ChecklistScreen() {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   const [filter, setFilter] = useState<FilterType>('all');
   const { checklist, setChecklist, toggleChecklistItem } = useAppStore();
 
@@ -141,7 +144,7 @@ export default function ChecklistScreen() {
 
   const renderItem = ({ item }: { item: ChecklistItem }) => {
     const checked = isItemChecked(item.id);
-    const priorityColor = getPriorityColor(item.priority);
+    const priorityColor = getPriorityColor(item.priority, colors);
     const priorityLabel = getPriorityLabel(item.priority);
 
     return (
@@ -256,194 +259,196 @@ export default function ChecklistScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  header: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.sm,
-  },
-  headerTitle: {
-    fontSize: fontSize.xxl,
-    fontWeight: fontWeight.bold as any,
-    color: colors.text,
-    marginBottom: spacing.xs,
-  },
-  headerSubtitle: {
-    fontSize: fontSize.sm,
-    color: colors.textMuted,
-  },
-  progressContainer: {
-    marginHorizontal: spacing.lg,
-    marginTop: spacing.md,
-    marginBottom: spacing.sm,
-    padding: spacing.md,
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.lg,
-    ...shadows.sm,
-  },
-  progressLabelRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.xs,
-  },
-  progressLabel: {
-    fontSize: fontSize.sm,
-    fontWeight: fontWeight.semibold as any,
-    color: colors.text,
-  },
-  progressPercent: {
-    fontSize: fontSize.sm,
-    fontWeight: fontWeight.bold as any,
-    color: colors.primary,
-  },
-  progressBarBackground: {
-    height: 8,
-    backgroundColor: colors.border,
-    borderRadius: borderRadius.full,
-    overflow: 'hidden',
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: colors.primary,
-    borderRadius: borderRadius.full,
-  },
-  progressDetail: {
-    fontSize: fontSize.xs,
-    color: colors.textMuted,
-    marginTop: spacing.xs,
-  },
-  filterContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-    gap: spacing.sm,
-  },
-  filterTab: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: borderRadius.full,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  filterTabActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
-  },
-  filterTabText: {
-    fontSize: fontSize.sm,
-    fontWeight: fontWeight.medium as any,
-    color: colors.textMuted,
-  },
-  filterTabTextActive: {
-    color: '#FFFFFF',
-  },
-  listContent: {
-    paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.xxl,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: spacing.md,
-    paddingTop: spacing.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    marginBottom: spacing.sm,
-  },
-  sectionHeaderLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  sectionTitle: {
-    fontSize: fontSize.lg,
-    fontWeight: fontWeight.semibold as any,
-    color: colors.text,
-  },
-  sectionCount: {
-    fontSize: fontSize.sm,
-    fontWeight: fontWeight.medium as any,
-    color: colors.textMuted,
-  },
-  itemRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderRadius: borderRadius.md,
-    padding: spacing.md,
-    marginBottom: spacing.sm,
-    ...shadows.sm,
-  },
-  itemRowChecked: {
-    opacity: 0.7,
-    backgroundColor: colors.surface,
-  },
-  checkboxContainer: {
-    marginRight: spacing.md,
-  },
-  itemContent: {
-    flex: 1,
-  },
-  itemTopRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.xs,
-  },
-  itemName: {
-    fontSize: fontSize.md,
-    fontWeight: fontWeight.medium as any,
-    color: colors.text,
-    flex: 1,
-    marginRight: spacing.sm,
-  },
-  itemNameChecked: {
-    textDecorationLine: 'line-through',
-    color: colors.textMuted,
-  },
-  priorityBadge: {
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 2,
-    borderRadius: borderRadius.full,
-  },
-  priorityText: {
-    fontSize: fontSize.xs,
-    fontWeight: fontWeight.semibold as any,
-  },
-  itemBottomRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-  },
-  itemQuantity: {
-    fontSize: fontSize.xs,
-    color: colors.textMuted,
-  },
-  itemCost: {
-    fontSize: fontSize.xs,
-    fontWeight: fontWeight.semibold as any,
-    color: colors.primary,
-  },
-  emptyContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: spacing.xxl,
-    gap: spacing.md,
-  },
-  emptyText: {
-    fontSize: fontSize.md,
-    color: colors.textMuted,
-    textAlign: 'center',
-  },
-});
+function makeStyles(colors: any) {
+  return StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    header: {
+      paddingHorizontal: spacing.lg,
+      paddingTop: spacing.lg,
+      paddingBottom: spacing.sm,
+    },
+    headerTitle: {
+      fontSize: fontSize.xxl,
+      fontWeight: fontWeight.bold as any,
+      color: colors.text,
+      marginBottom: spacing.xs,
+    },
+    headerSubtitle: {
+      fontSize: fontSize.sm,
+      color: colors.textMuted,
+    },
+    progressContainer: {
+      marginHorizontal: spacing.lg,
+      marginTop: spacing.md,
+      marginBottom: spacing.sm,
+      padding: spacing.md,
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.lg,
+      ...shadows.sm,
+    },
+    progressLabelRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.xs,
+    },
+    progressLabel: {
+      fontSize: fontSize.sm,
+      fontWeight: fontWeight.semibold as any,
+      color: colors.text,
+    },
+    progressPercent: {
+      fontSize: fontSize.sm,
+      fontWeight: fontWeight.bold as any,
+      color: colors.primary,
+    },
+    progressBarBackground: {
+      height: 8,
+      backgroundColor: colors.border,
+      borderRadius: borderRadius.full,
+      overflow: 'hidden',
+    },
+    progressBarFill: {
+      height: '100%',
+      backgroundColor: colors.primary,
+      borderRadius: borderRadius.full,
+    },
+    progressDetail: {
+      fontSize: fontSize.xs,
+      color: colors.textMuted,
+      marginTop: spacing.xs,
+    },
+    filterContainer: {
+      flexDirection: 'row',
+      paddingHorizontal: spacing.lg,
+      paddingVertical: spacing.md,
+      gap: spacing.sm,
+    },
+    filterTab: {
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.sm,
+      borderRadius: borderRadius.full,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    filterTabActive: {
+      backgroundColor: colors.primary,
+      borderColor: colors.primary,
+    },
+    filterTabText: {
+      fontSize: fontSize.sm,
+      fontWeight: fontWeight.medium as any,
+      color: colors.textMuted,
+    },
+    filterTabTextActive: {
+      color: '#FFFFFF',
+    },
+    listContent: {
+      paddingHorizontal: spacing.lg,
+      paddingBottom: spacing.xxl,
+    },
+    sectionHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: spacing.md,
+      paddingTop: spacing.lg,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+      marginBottom: spacing.sm,
+    },
+    sectionHeaderLeft: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.sm,
+    },
+    sectionTitle: {
+      fontSize: fontSize.lg,
+      fontWeight: fontWeight.semibold as any,
+      color: colors.text,
+    },
+    sectionCount: {
+      fontSize: fontSize.sm,
+      fontWeight: fontWeight.medium as any,
+      color: colors.textMuted,
+    },
+    itemRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderRadius: borderRadius.md,
+      padding: spacing.md,
+      marginBottom: spacing.sm,
+      ...shadows.sm,
+    },
+    itemRowChecked: {
+      opacity: 0.7,
+      backgroundColor: colors.surface,
+    },
+    checkboxContainer: {
+      marginRight: spacing.md,
+    },
+    itemContent: {
+      flex: 1,
+    },
+    itemTopRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.xs,
+    },
+    itemName: {
+      fontSize: fontSize.md,
+      fontWeight: fontWeight.medium as any,
+      color: colors.text,
+      flex: 1,
+      marginRight: spacing.sm,
+    },
+    itemNameChecked: {
+      textDecorationLine: 'line-through',
+      color: colors.textMuted,
+    },
+    priorityBadge: {
+      paddingHorizontal: spacing.sm,
+      paddingVertical: 2,
+      borderRadius: borderRadius.full,
+    },
+    priorityText: {
+      fontSize: fontSize.xs,
+      fontWeight: fontWeight.semibold as any,
+    },
+    itemBottomRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.md,
+    },
+    itemQuantity: {
+      fontSize: fontSize.xs,
+      color: colors.textMuted,
+    },
+    itemCost: {
+      fontSize: fontSize.xs,
+      fontWeight: fontWeight.semibold as any,
+      color: colors.primary,
+    },
+    emptyContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: spacing.xxl,
+      gap: spacing.md,
+    },
+    emptyText: {
+      fontSize: fontSize.md,
+      color: colors.textMuted,
+      textAlign: 'center',
+    },
+  });
+}

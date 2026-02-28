@@ -13,7 +13,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
+import { useTheme } from '../../src/contexts/ThemeContext';
+import { spacing, borderRadius, fontSize, fontWeight, shadows } from '../../src/utils/theme';
 import { streamChat } from '../../src/services/api';
 import { useAppStore } from '../../src/store/useAppStore';
 
@@ -31,6 +32,7 @@ const SUGGESTED_QUESTIONS = [
 ];
 
 export default function AssistantScreen() {
+  const { colors } = useTheme();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,8 @@ export default function AssistantScreen() {
   const flatListRef = useRef<FlatList>(null);
   const { createChatSession, addChatMessage, chatSessions } = useAppStore();
   const sessionIdRef = useRef<string | null>(null);
+
+  const styles = makeStyles(colors);
 
   const scrollToBottom = useCallback(() => {
     if (flatListRef.current && messages.length > 0) {
@@ -275,191 +279,193 @@ export default function AssistantScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  header: {
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  headerTitle: {
-    fontSize: fontSize.xl,
-    fontWeight: fontWeight.bold,
-    color: colors.text,
-  },
-  headerSubtitle: {
-    fontSize: fontSize.sm,
-    color: colors.textSecondary,
-    marginTop: 2,
-  },
-  scrollContainer: {
-    flex: 1,
-  },
-  suggestionsScrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.xl,
-  },
-  messagesList: {
-    flex: 1,
-  },
-  messagesContent: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-  },
-  messageBubbleContainer: {
-    marginBottom: spacing.md,
-    maxWidth: '80%',
-  },
-  userContainer: {
-    alignSelf: 'flex-end',
-    alignItems: 'flex-end',
-  },
-  assistantContainer: {
-    alignSelf: 'flex-start',
-    alignItems: 'flex-start',
-  },
-  messageLabel: {
-    fontSize: fontSize.xs,
-    marginBottom: 4,
-    fontWeight: fontWeight.medium,
-  },
-  userLabel: {
-    color: colors.primary,
-  },
-  assistantLabel: {
-    color: colors.textSecondary,
-  },
-  messageBubble: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: borderRadius.lg,
-    ...shadows.sm,
-  },
-  userBubble: {
-    backgroundColor: colors.primary,
-    borderBottomRightRadius: borderRadius.sm,
-  },
-  assistantBubble: {
-    backgroundColor: colors.surfaceSecondary,
-    borderBottomLeftRadius: borderRadius.sm,
-  },
-  messageText: {
-    fontSize: fontSize.md,
-    lineHeight: 22,
-  },
-  userText: {
-    color: colors.textOnPrimary,
-  },
-  assistantText: {
-    color: colors.text,
-  },
-  typingIndicator: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  typingText: {
-    fontSize: fontSize.sm,
-    color: colors.textSecondary,
-    marginLeft: spacing.xs,
-    fontStyle: 'italic',
-  },
-  suggestionsContainer: {
-    alignItems: 'center',
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginBottom: spacing.xl,
-  },
-  welcomeTitle: {
-    fontSize: fontSize.xxl,
-    fontWeight: fontWeight.bold,
-    color: colors.text,
-    marginTop: spacing.md,
-  },
-  welcomeSubtitle: {
-    fontSize: fontSize.md,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.sm,
-    lineHeight: 22,
-    paddingHorizontal: spacing.lg,
-  },
-  suggestionsTitle: {
-    fontSize: fontSize.md,
-    fontWeight: fontWeight.semibold,
-    color: colors.text,
-    marginBottom: spacing.md,
-    alignSelf: 'flex-start',
-  },
-  suggestionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    borderRadius: borderRadius.md,
-    marginBottom: spacing.sm,
-    width: '100%',
-    borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.sm,
-  },
-  suggestionIcon: {
-    marginRight: spacing.sm,
-  },
-  suggestionText: {
-    flex: 1,
-    fontSize: fontSize.sm,
-    color: colors.text,
-    lineHeight: 20,
-  },
-  inputContainer: {
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: borderRadius.xl,
-    backgroundColor: colors.background,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: Platform.OS === 'ios' ? spacing.xs : 0,
-  },
-  textInput: {
-    flex: 1,
-    fontSize: fontSize.md,
-    color: colors.text,
-    maxHeight: 100,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-  },
-  sendButton: {
-    backgroundColor: colors.primary,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: Platform.OS === 'ios' ? 2 : spacing.xs,
-  },
-  sendButtonDisabled: {
-    backgroundColor: colors.borderLight,
-  },
-});
+function makeStyles(colors: any) {
+  return StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    header: {
+      paddingHorizontal: spacing.lg,
+      paddingVertical: spacing.md,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+      backgroundColor: colors.surface,
+    },
+    headerTitle: {
+      fontSize: fontSize.xl,
+      fontWeight: fontWeight.bold,
+      color: colors.text,
+    },
+    headerSubtitle: {
+      fontSize: fontSize.sm,
+      color: colors.textSecondary,
+      marginTop: 2,
+    },
+    scrollContainer: {
+      flex: 1,
+    },
+    suggestionsScrollContent: {
+      flexGrow: 1,
+      justifyContent: 'center',
+      paddingHorizontal: spacing.lg,
+      paddingBottom: spacing.xl,
+    },
+    messagesList: {
+      flex: 1,
+    },
+    messagesContent: {
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.md,
+    },
+    messageBubbleContainer: {
+      marginBottom: spacing.md,
+      maxWidth: '80%',
+    },
+    userContainer: {
+      alignSelf: 'flex-end',
+      alignItems: 'flex-end',
+    },
+    assistantContainer: {
+      alignSelf: 'flex-start',
+      alignItems: 'flex-start',
+    },
+    messageLabel: {
+      fontSize: fontSize.xs,
+      marginBottom: 4,
+      fontWeight: fontWeight.medium,
+    },
+    userLabel: {
+      color: colors.primary,
+    },
+    assistantLabel: {
+      color: colors.textSecondary,
+    },
+    messageBubble: {
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.sm,
+      borderRadius: borderRadius.lg,
+      ...shadows.sm,
+    },
+    userBubble: {
+      backgroundColor: colors.primary,
+      borderBottomRightRadius: borderRadius.sm,
+    },
+    assistantBubble: {
+      backgroundColor: colors.surfaceSecondary,
+      borderBottomLeftRadius: borderRadius.sm,
+    },
+    messageText: {
+      fontSize: fontSize.md,
+      lineHeight: 22,
+    },
+    userText: {
+      color: colors.textOnPrimary,
+    },
+    assistantText: {
+      color: colors.text,
+    },
+    typingIndicator: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 4,
+    },
+    typingText: {
+      fontSize: fontSize.sm,
+      color: colors.textSecondary,
+      marginLeft: spacing.xs,
+      fontStyle: 'italic',
+    },
+    suggestionsContainer: {
+      alignItems: 'center',
+    },
+    welcomeContainer: {
+      alignItems: 'center',
+      marginBottom: spacing.xl,
+    },
+    welcomeTitle: {
+      fontSize: fontSize.xxl,
+      fontWeight: fontWeight.bold,
+      color: colors.text,
+      marginTop: spacing.md,
+    },
+    welcomeSubtitle: {
+      fontSize: fontSize.md,
+      color: colors.textSecondary,
+      textAlign: 'center',
+      marginTop: spacing.sm,
+      lineHeight: 22,
+      paddingHorizontal: spacing.lg,
+    },
+    suggestionsTitle: {
+      fontSize: fontSize.md,
+      fontWeight: fontWeight.semibold,
+      color: colors.text,
+      marginBottom: spacing.md,
+      alignSelf: 'flex-start',
+    },
+    suggestionButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.md,
+      borderRadius: borderRadius.md,
+      marginBottom: spacing.sm,
+      width: '100%',
+      borderWidth: 1,
+      borderColor: colors.border,
+      ...shadows.sm,
+    },
+    suggestionIcon: {
+      marginRight: spacing.sm,
+    },
+    suggestionText: {
+      flex: 1,
+      fontSize: fontSize.sm,
+      color: colors.text,
+      lineHeight: 20,
+    },
+    inputContainer: {
+      borderTopWidth: 1,
+      borderTopColor: colors.border,
+      backgroundColor: colors.surface,
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.sm,
+    },
+    inputRow: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: borderRadius.xl,
+      backgroundColor: colors.background,
+      paddingHorizontal: spacing.sm,
+      paddingVertical: Platform.OS === 'ios' ? spacing.xs : 0,
+    },
+    textInput: {
+      flex: 1,
+      fontSize: fontSize.md,
+      color: colors.text,
+      maxHeight: 100,
+      paddingHorizontal: spacing.sm,
+      paddingVertical: spacing.sm,
+    },
+    sendButton: {
+      backgroundColor: colors.primary,
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: Platform.OS === 'ios' ? 2 : spacing.xs,
+    },
+    sendButtonDisabled: {
+      backgroundColor: colors.borderLight,
+    },
+  });
+}

@@ -240,4 +240,30 @@ export interface AppState {
   groceryLists: GroceryList[];
   chatSessions: ChatSession[];
   selectedMealPlan?: string;
+  careTeam: CareTeamMember[];
+  notificationIds: Record<string, string>;
+}
+
+// --- Care Team Types ---
+
+export type ProviderSpecialty =
+  | 'obgyn'
+  | 'pediatrician'
+  | 'lactation_consultant'
+  | 'therapist'
+  | 'doula'
+  | 'midwife'
+  | 'pelvic_floor_pt'
+  | 'other';
+
+export interface CareTeamMember {
+  id: string;
+  name: string;
+  specialty: ProviderSpecialty;
+  phone?: string;
+  email?: string;
+  clinic?: string;
+  address?: string;
+  notes?: string;
+  nextAppointment?: string;
 }
