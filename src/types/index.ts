@@ -61,6 +61,7 @@ export interface ChecklistItem {
 }
 
 export interface ChecklistSection {
+  id: string;
   category: ChecklistCategory;
   title: string;
   icon: string;

@@ -2,6 +2,7 @@ import { ChecklistSection } from '../types';
 
 export const babyChecklist: ChecklistSection[] = [
   {
+    id: 'feeding',
     category: 'feeding',
     title: 'Feeding Essentials',
     icon: 'restaurant',
@@ -140,6 +141,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'diapering',
     category: 'diapering',
     title: 'Diapering Supplies',
     icon: 'layers',
@@ -228,6 +230,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'sleeping',
     category: 'sleeping',
     title: 'Sleep & Nursery',
     icon: 'moon',
@@ -325,6 +328,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'bathing',
     category: 'bathing',
     title: 'Bath & Grooming',
     icon: 'water',
@@ -402,6 +406,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'clothing',
     category: 'clothing',
     title: 'Clothing',
     icon: 'shirt',
@@ -469,6 +474,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'health',
     category: 'health',
     title: 'Health & Safety',
     icon: 'medkit',
@@ -536,6 +542,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'travel',
     category: 'travel',
     title: 'Travel & On-The-Go',
     icon: 'car',
@@ -593,6 +600,7 @@ export const babyChecklist: ChecklistSection[] = [
     ],
   },
   {
+    id: 'postpartum_mom',
     category: 'postpartum_mom',
     title: 'Postpartum Mom Essentials',
     icon: 'flower',

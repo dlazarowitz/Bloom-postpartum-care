@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: fontSize.xl,
     fontWeight: fontWeight.bold as any,
-    color: colors.textPrimary,
+    color: colors.text,
     marginBottom: spacing.sm,
   },
   cardDescription: {
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   },
   viewGuideButtonText: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.surface,
     marginRight: spacing.sm,
   },

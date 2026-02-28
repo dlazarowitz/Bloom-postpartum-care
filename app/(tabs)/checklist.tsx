@@ -67,14 +67,14 @@ function getPriorityLabel(priority: string): string {
 
 export default function ChecklistScreen() {
   const [filter, setFilter] = useState<FilterType>('all');
-  const { checklist, initializeChecklist, toggleChecklistItem } = useAppStore();
+  const { checklist, setChecklist, toggleChecklistItem } = useAppStore();
 
   useEffect(() => {
     if (!checklist || checklist.length === 0) {
       const allItems: ChecklistItem[] = babyChecklist.flatMap(
         (section: ChecklistSection) => section.items
       );
-      initializeChecklist(allItems);
+      setChecklist(allItems);
     }
   }, []);
 
@@ -173,7 +173,7 @@ export default function ChecklistScreen() {
               <Text style={styles.itemQuantity}>Qty: {item.quantity}</Text>
             )}
             {item.estimatedCost != null && (
-              <Text style={styles.itemCost}>${item.estimatedCost.toFixed(2)}</Text>
+              <Text style={styles.itemCost}>{item.estimatedCost}</Text>
             )}
           </View>
         </View>
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
   },
   progressLabel: {
     fontSize: fontSize.sm,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
   },
   progressPercent: {
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: fontSize.lg,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
   },
   sectionCount: {
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   },
   priorityText: {
     fontSize: fontSize.xs,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
   },
   itemBottomRow: {
     flexDirection: 'row',
@@ -432,7 +432,7 @@ const styles = StyleSheet.create({
   },
   itemCost: {
     fontSize: fontSize.xs,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.primary,
   },
   emptyContainer: {

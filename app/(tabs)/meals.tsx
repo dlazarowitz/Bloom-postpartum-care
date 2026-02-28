@@ -17,6 +17,11 @@ import { groceryStores } from '../../src/data/grocery-stores';
 
 const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
+function getRecipeTitle(recipeId: string): string {
+  const recipe = postpartumRecipes.find((r) => r.id === recipeId);
+  return recipe?.title ?? recipeId;
+}
+
 export default function MealsScreen() {
   const router = useRouter();
   const [mealPlanExpanded, setMealPlanExpanded] = useState(false);
@@ -54,7 +59,7 @@ export default function MealsScreen() {
 
       {mealPlanExpanded && (
         <View style={styles.mealPlanContent}>
-          {weeklyMealPlan.map((day: any, dayIndex: number) => {
+          {weeklyMealPlan.days.map((day, dayIndex) => {
             const dayName = day.day ?? DAY_NAMES[dayIndex] ?? `Day ${dayIndex + 1}`;
             const isDayExpanded = expandedDay === dayIndex;
 
@@ -75,40 +80,28 @@ export default function MealsScreen() {
 
                 {isDayExpanded && (
                   <View style={styles.dayMeals}>
-                    {day.meals?.map((meal: any, mealIndex: number) => (
-                      <View key={mealIndex} style={styles.mealRow}>
-                        <Text style={styles.mealType}>{meal.type ?? meal.mealType ?? 'Meal'}</Text>
-                        <Text style={styles.mealName}>{meal.name ?? meal.title ?? meal.recipe ?? ''}</Text>
-                      </View>
-                    ))}
                     {day.breakfast && (
                       <View style={styles.mealRow}>
                         <Text style={styles.mealType}>Breakfast</Text>
-                        <Text style={styles.mealName}>{day.breakfast}</Text>
+                        <Text style={styles.mealName}>{getRecipeTitle(day.breakfast)}</Text>
                       </View>
                     )}
                     {day.lunch && (
                       <View style={styles.mealRow}>
                         <Text style={styles.mealType}>Lunch</Text>
-                        <Text style={styles.mealName}>{day.lunch}</Text>
+                        <Text style={styles.mealName}>{getRecipeTitle(day.lunch)}</Text>
                       </View>
                     )}
                     {day.dinner && (
                       <View style={styles.mealRow}>
                         <Text style={styles.mealType}>Dinner</Text>
-                        <Text style={styles.mealName}>{day.dinner}</Text>
+                        <Text style={styles.mealName}>{getRecipeTitle(day.dinner)}</Text>
                       </View>
                     )}
-                    {day.snack && (
-                      <View style={styles.mealRow}>
-                        <Text style={styles.mealType}>Snack</Text>
-                        <Text style={styles.mealName}>{day.snack}</Text>
-                      </View>
-                    )}
-                    {day.snacks && Array.isArray(day.snacks) && day.snacks.map((snack: string, si: number) => (
+                    {day.snacks.map((snackId, si) => (
                       <View key={`snack-${si}`} style={styles.mealRow}>
                         <Text style={styles.mealType}>Snack</Text>
-                        <Text style={styles.mealName}>{snack}</Text>
+                        <Text style={styles.mealName}>{getRecipeTitle(snackId)}</Text>
                       </View>
                     ))}
                   </View>
@@ -188,21 +181,21 @@ export default function MealsScreen() {
     );
   };
 
-  const renderGroceryStoreCard = (store: any) => {
-    const brandColor = store.brandColor ?? store.color ?? colors.primary;
+  const renderGroceryStoreCard = (store: typeof groceryStores[number]) => {
+    const brandColor = store.color;
 
     return (
-      <View key={store.id ?? store.name} style={[styles.storeCard, { borderTopColor: brandColor }]}>
+      <View key={store.id} style={[styles.storeCard, { borderTopColor: brandColor }]}>
         <Text style={styles.storeName}>{store.name}</Text>
 
         <View style={styles.storeBadges}>
-          {store.delivery && (
+          {store.deliveryAvailable && (
             <View style={[styles.storeBadge, { backgroundColor: brandColor + '20' }]}>
               <Ionicons name="bicycle-outline" size={12} color={brandColor} />
               <Text style={[styles.storeBadgeText, { color: brandColor }]}>Delivery</Text>
             </View>
           )}
-          {store.pickup && (
+          {store.pickupAvailable && (
             <View style={[styles.storeBadge, { backgroundColor: brandColor + '20' }]}>
               <Ionicons name="storefront-outline" size={12} color={brandColor} />
               <Text style={[styles.storeBadgeText, { color: brandColor }]}>Pickup</Text>
@@ -210,10 +203,10 @@ export default function MealsScreen() {
           )}
         </View>
 
-        {store.url && (
+        {store.onlineOrderUrl && (
           <TouchableOpacity
             style={[styles.shopButton, { backgroundColor: brandColor }]}
-            onPress={() => handleStorePress(store.url)}
+            onPress={() => handleStorePress(store.onlineOrderUrl)}
             activeOpacity={0.7}
           >
             <Ionicons name="cart-outline" size={16} color="#FFFFFF" />
@@ -270,7 +263,7 @@ export default function MealsScreen() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.storesScrollContent}
           >
-            {groceryStores.map((store: any) => renderGroceryStoreCard(store))}
+            {groceryStores.map((store) => renderGroceryStoreCard(store))}
           </ScrollView>
         </View>
       </ScrollView>
@@ -321,7 +314,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: fontSize.lg,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
   },
   mealPlanHeader: {
@@ -351,7 +344,7 @@ const styles = StyleSheet.create({
   },
   dayName: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
   },
   dayMeals: {
@@ -369,7 +362,7 @@ const styles = StyleSheet.create({
   },
   mealType: {
     fontSize: fontSize.xs,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.primary,
     width: 70,
     textTransform: 'uppercase',
@@ -393,7 +386,7 @@ const styles = StyleSheet.create({
   },
   recipeTitle: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
     marginBottom: spacing.xs,
   },
@@ -460,7 +453,7 @@ const styles = StyleSheet.create({
   },
   storeName: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.text,
     marginBottom: spacing.sm,
   },
@@ -492,7 +485,7 @@ const styles = StyleSheet.create({
   },
   shopButtonText: {
     fontSize: fontSize.sm,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: '#FFFFFF',
   },
 });

@@ -85,11 +85,20 @@ export default function AssistantScreen() {
 
       let streamedContent = '';
 
-      await streamChat(chatHistory, (token: string) => {
-        streamedContent += token;
-        setCurrentStreamedText(streamedContent);
-        scrollToBottom();
-      });
+      await streamChat(
+        { messages: chatHistory },
+        (token: string) => {
+          streamedContent += token;
+          setCurrentStreamedText(streamedContent);
+          scrollToBottom();
+        },
+        () => {
+          // onDone — streaming complete
+        },
+        (errorMsg: string) => {
+          throw new Error(errorMsg);
+        },
+      );
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),

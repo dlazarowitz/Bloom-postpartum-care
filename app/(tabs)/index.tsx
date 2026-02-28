@@ -202,8 +202,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
-    color: colors.textPrimary,
+    fontWeight: fontWeight.semibold as any,
+    color: colors.text,
     marginBottom: spacing.xs,
   },
   cardDescription: {
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   },
   emergencyTitle: {
     fontSize: fontSize.lg,
-    fontWeight: fontWeight.semiBold as any,
+    fontWeight: fontWeight.semibold as any,
     color: colors.error,
     marginLeft: spacing.sm,
   },
@@ -244,8 +244,8 @@ const styles = StyleSheet.create({
   },
   emergencyName: {
     fontSize: fontSize.md,
-    fontWeight: fontWeight.semiBold as any,
-    color: colors.textPrimary,
+    fontWeight: fontWeight.semibold as any,
+    color: colors.text,
     marginBottom: spacing.xs,
   },
   emergencyPhone: {
