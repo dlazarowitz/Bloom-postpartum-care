@@ -42,3 +42,7 @@ npm-debug.log*
 executive-briefing/output/*.pptx
 executive-briefing/output/*.xlsx
 executive-briefing/output/*.docx
+
+# Python
+__pycache__/
+*.pyc
