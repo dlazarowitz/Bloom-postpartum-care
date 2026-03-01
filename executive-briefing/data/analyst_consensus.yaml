@@ -1,0 +1,86 @@
+# =============================================================================
+# Analyst Consensus & Market Sentiment
+# Sources: Earnings reports, analyst reports, Yahoo Finance, TipRanks
+# FactSet fields: FactSet Estimates -> Consensus Detail, Price Target Summary
+# Last Updated: 2026-03-01
+# Feeds: Slide 13
+# =============================================================================
+
+ttec:
+  ticker: "TTEC"
+  current_price: 7.50  # Approximate as of early 2026
+  consensus_rating: "Hold"
+  num_analysts: 5
+  ratings_distribution:
+    buy: 1
+    hold: 3
+    sell: 1
+  price_target:
+    low: 5.00
+    median: 8.50
+    high: 12.00
+  consensus_estimates:
+    fy2026_revenue_millions: 2030
+    fy2026_eps: 0.45
+    fy2027_revenue_millions: 2080
+    fy2027_eps: 0.65
+  sentiment_notes:
+    - "Analysts cautious on revenue trajectory but positive on margin improvement"
+    - "Debt reduction and FCF generation viewed favorably"
+    - "AI transformation execution risk is key concern"
+    - "Stock significantly below 52-week high, potential value play"
+
+key_peers:
+  - ticker: "CNXC"
+    name: "Concentrix"
+    consensus_rating: "Buy"
+    num_analysts: 8
+    price_target_median: 85.00
+    current_price: 62.00
+    fy_forward_ev_ebitda: 7.8
+
+  - ticker: "TASK"
+    name: "TaskUs"
+    consensus_rating: "Buy"
+    num_analysts: 7
+    price_target_median: 18.00
+    current_price: 14.50
+    fy_forward_ev_ebitda: 8.5
+
+  - ticker: "EXLS"
+    name: "ExlService"
+    consensus_rating: "Buy"
+    num_analysts: 10
+    price_target_median: 48.00
+    current_price: 40.00
+    fy_forward_ev_ebitda: 18.5
+
+  - ticker: "WNS"
+    name: "WNS Holdings"
+    consensus_rating: "Buy"
+    num_analysts: 8
+    price_target_median: 68.00
+    current_price: 56.00
+    fy_forward_ev_ebitda: 11.0
+
+  - ticker: "G"
+    name: "Genpact"
+    consensus_rating: "Buy"
+    num_analysts: 12
+    price_target_median: 48.00
+    current_price: 42.00
+    fy_forward_ev_ebitda: 12.0
+
+  - ticker: "CNDT"
+    name: "Conduent"
+    consensus_rating: "Hold"
+    num_analysts: 3
+    price_target_median: 5.00
+    current_price: 3.80
+    fy_forward_ev_ebitda: 4.5
+
+sector_themes:
+  - "CX/BPO sector trading at discount to broader IT services due to AI disruption fears"
+  - "Analytics-led companies (EXLS, G) commanding significant premium over traditional BPO"
+  - "Investor focus shifting from revenue growth to FCF generation and capital returns"
+  - "AI disruption narrative weighing on headcount-dependent business models"

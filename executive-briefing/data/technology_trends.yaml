@@ -1,0 +1,126 @@
+# =============================================================================
+# Technology Trends — AI, Cloud, Automation in CX
+# Sources: TTEC CX Trends, Verint, Gartner, industry press
+# Last Updated: 2026-03-01
+# Feeds: Slides 5, 6, 7
+# =============================================================================
+
+ai_adoption:
+  headline: "80% of CX organizations adopting GenAI solutions"
+  stats:
+    - metric: "CX orgs adopting GenAI"
+      value: 80
+      unit: "percent"
+      source: "Verint/Gartner 2025"
+
+    - metric: "Projected CX labor cost reduction from AI by 2026"
+      value: 80
+      unit: "billions_usd"
+      source: "Industry estimates"
+
+    - metric: "TTEC client AI adoption target (end of 2026)"
+      value: 100
+      unit: "percent"
+      source: "TTEC Q4 2025 earnings call"
+
+    - metric: "AI-handled customer interactions (current)"
+      value: 25
+      unit: "percent"
+      source: "Gartner 2025"
+
+    - metric: "AI-handled customer interactions (projected 2028)"
+      value: 60
+      unit: "percent"
+      source: "Gartner forecast"
+
+ai_disruption_assessment:
+  title: "AI Disruption Risk Assessment"
+  tam_compression_scenario:
+    scenario_low:
+      ai_adoption_pct: 30
+      revenue_impact_pct: -8
+      timeline: "2026-2028"
+      description: "Gradual adoption — AI handles Tier 1 queries, minimal impact on complex CX"
+
+    scenario_mid:
+      ai_adoption_pct: 55
+      revenue_impact_pct: -18
+      timeline: "2026-2029"
+      description: "Accelerated adoption — AI agents handle majority of routine interactions"
+
+    scenario_high:
+      ai_adoption_pct: 80
+      revenue_impact_pct: -30
+      timeline: "2026-2030"
+      description: "Aggressive adoption — AI handles most interactions, humans for exceptions only"
+
+  ttec_readiness:
+    strengths:
+      - "Early AI integration across client engagements"
+      - "TTEC Digital well-positioned to implement AI solutions"
+      - "Shift from headcount-based to outcome-based pricing underway"
+    vulnerabilities:
+      - "TTEC Engage still primarily headcount-based revenue model"
+      - "Transition period may compress margins before AI revenue scales"
+      - "Smaller scale vs. Concentrix/Teleperformance limits AI R&D investment"
+    peer_comparison:
+      - company: "Concentrix"
+        ai_readiness: "High"
+        notes: "Gen AI Studio platform, significant R&D investment"
+      - company: "Teleperformance"
+        ai_readiness: "High"
+        notes: "TP Infinity AI platform, aggressive workforce optimization"
+      - company: "TaskUs"
+        ai_readiness: "Very High"
+        notes: "AI training data/annotation as core business, digital-native"
+      - company: "TTEC"
+        ai_readiness: "Medium-High"
+        notes: "Digital segment well-positioned, Engage transitioning"
+      - company: "Conduent"
+        ai_readiness: "Medium"
+        notes: "Investing in digital government, but legacy drag"
+
+cloud_and_digital:
+  title: "Cloud & Digital CX Trends"
+  trends:
+    - name: "CCaaS Migration"
+      description: "Contact Center as a Service adoption accelerating"
+      adoption_pct: 55
+      growth_rate_pct: 20
+      key_players:
+        - "Genesys Cloud"
+        - "NICE CXone"
+        - "Amazon Connect"
+        - "Five9"
+        - "Talkdesk"
+
+    - name: "Omnichannel Engagement"
+      description: "Unified customer experience across voice, chat, email, social, video"
+      adoption_pct: 65
+      growth_rate_pct: 15
+
+    - name: "Conversational AI"
+      description: "AI-powered chatbots and virtual agents handling customer interactions"
+      adoption_pct: 45
+      growth_rate_pct: 35
+
+    - name: "Real-time Analytics"
+      description: "AI-driven sentiment analysis and agent coaching during interactions"
+      adoption_pct: 30
+      growth_rate_pct: 40
+
+emerging_models:
+  - name: "Outcome-based Pricing"
+    description: "Shifting from per-agent-hour to per-resolution or per-outcome pricing"
+    adoption_stage: "Early"
+    impact: "Could increase margins for providers that automate effectively"
+
+  - name: "AI + Human Hybrid"
+    description: "AI handles routine queries, human agents handle complex/emotional interactions"
+    adoption_stage: "Growing"
+    impact: "Becoming the standard operating model for large CX providers"
+
+  - name: "Agentic AI"
+    description: "Autonomous AI agents that can research, decide, and act on customer behalf"
+    adoption_stage: "Emerging"
+    impact: "Potential to fundamentally reshape CX delivery within 3-5 years"

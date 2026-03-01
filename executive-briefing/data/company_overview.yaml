@@ -1,0 +1,153 @@
+# =============================================================================
+# TTEC Holdings Company Overview & Financial Performance
+# Source: investors.ttec.com, SEC filings (10-K, 10-Q)
+# FactSet fields: FF_SALES, FF_EBITDA, FF_OPER_INC
+# Last Updated: 2026-03-01
+# Feeds: Slides 3, 8, 9, 10, 15
+# =============================================================================
+
+company_name: "TTEC Holdings, Inc."
+ticker: "TTEC"
+exchange: "NASDAQ"
+headquarters: "Greenwood Village, CO"
+founded: 1982
+ceo: "Ken Tuchman"
+employees: 52000
+countries_of_operation: 20
+continents: 6
+website: "https://www.ttec.com"
+ir_url: "https://investors.ttec.com"
+description: >
+  TTEC Holdings is a leading global CX technology and services company
+  focused on the design, implementation, and delivery of transformative
+  solutions for many of the world's most iconic and disruptive brands
+  at the intersection of data, AI, and customer experience.
+
+# Segment descriptions
+segments:
+  ttec_digital:
+    name: "TTEC Digital"
+    description: >
+      Designs, builds, and operates omnichannel contact center technology,
+      CRM, AI and analytics solutions. Focuses on cloud-based and on-premises
+      customer experience tools.
+    key_services:
+      - "CX strategy and design consulting"
+      - "Cloud contact center implementation (AWS, Genesys, NICE)"
+      - "AI and analytics solutions"
+      - "CX technology managed services"
+
+  ttec_engage:
+    name: "TTEC Engage"
+    description: >
+      Delivers AI-enabled customer engagement, customer acquisition and growth,
+      tech support, back office, and fraud prevention services.
+    key_services:
+      - "Customer care and support"
+      - "Customer acquisition and growth"
+      - "Fraud prevention and detection"
+      - "Back-office processing"
+      - "AI-augmented agent services"
+
+# Annual financial performance
+annual_results:
+  - year: 2022
+    revenue_millions: 2489
+    adj_ebitda_millions: 255
+    adj_ebitda_margin_pct: 10.2
+    operating_income_millions: 170
+    net_income_millions: 75
+    free_cash_flow_millions: 45
+    net_debt_millions: 980
+    employees: 64000
+
+  - year: 2023
+    revenue_millions: 2463
+    adj_ebitda_millions: 220
+    adj_ebitda_margin_pct: 8.9
+    operating_income_millions: 148
+    net_income_millions: 45
+    free_cash_flow_millions: -20
+    net_debt_millions: 950
+    employees: 62000
+
+  - year: 2024
+    revenue_millions: 2208
+    adj_ebitda_millions: 202
+    adj_ebitda_margin_pct: 9.2
+    operating_income_millions: 137
+    net_income_millions: -120
+    free_cash_flow_millions: -59
+    net_debt_millions: 893
+    employees: 58000
+
+  - year: 2025
+    revenue_millions: 2137
+    adj_ebitda_millions: 214
+    adj_ebitda_margin_pct: 10.0
+    operating_income_millions: 155
+    net_income_millions: -185  # Includes $205.4M goodwill impairment
+    free_cash_flow_millions: 83
+    net_debt_millions: 825
+    employees: 55000
+    notes: "FY2025 exceeded high end of revenue guidance. $205.4M non-cash impairment charge on TTEC Digital reporting unit."
+
+# Quarterly segment detail (latest)
+quarterly_segments:
+  period: "Q4 2025"
+  ttec_digital:
+    revenue_millions: 125.5
+    revenue_growth_yoy_pct: 9.2
+    non_gaap_operating_margin_pct: 9.4
+    gaap_operating_margin_pct: -159.3  # Impairment-impacted
+
+  ttec_engage:
+    revenue_millions: 444.5
+    revenue_growth_yoy_pct: -1.8
+    non_gaap_operating_margin_pct: 8.1
+    gaap_operating_margin_pct: 6.2
+
+# Consolidated Q4 2025
+quarterly_consolidated:
+  period: "Q4 2025"
+  revenue_millions: 570
+  prior_year_revenue_millions: 567
+
+# Balance sheet highlights
+balance_sheet:
+  as_of: "2025-12-31"
+  net_debt_millions: 825
+  net_leverage_ratio: 3.58
+  prior_year_leverage_ratio: 3.99
+  debt_reduction_millions: 68  # YoY decrease
+
+# FY2026 guidance
+guidance_2026:
+  revenue_low_millions: 2005
+  revenue_high_millions: 2055
+  adj_ebitda_low_millions: 220
+  adj_ebitda_high_millions: 240
+  commentary:
+    - "Revenue decline ~5% YoY driven by client rationalization and offshore migration"
+    - "EBITDA growth ~7.6% YoY from margin improvement and cost management"
+    - "Expect near 100% AI adoption with current clients by end of 2026"
+    - "Continued debt reduction and deleveraging"
+    - "Digital segment revenue expected to decline ~8.4% due to product resale reduction"
+    - "Engage segment revenue expected to decline ~4% from client optimization"
+
+# Key strategic priorities
+strategic_priorities:
+  - "AI integration across all client engagements"
+  - "Profitability over revenue — optimizing underperforming contracts"
+  - "Balance sheet improvement — debt reduction and margin expansion"
+  - "Higher-value transformational engagements"
+  - "Geographic delivery optimization"
+
+# Recent leadership changes
+leadership_changes:
+  - name: "Alfredo Rizzo"
+    role: "Chief Technology Officer"
+    date: "2025"
+  - name: "Ramki Desai Raju"
+    role: "Chief Operating Officer, TTEC Digital"
+    date: "2025"

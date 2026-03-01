@@ -1,0 +1,53 @@
+# =============================================================================
+# TTEC Holdings Executive Briefing — Branding & Configuration
+# Update these values to change colors, fonts, and settings across all outputs
+# =============================================================================
+
+company_name: "TTEC Holdings, Inc."
+ticker: "TTEC"
+exchange: "NASDAQ"
+classification: "CONFIDENTIAL"
+
+# Current reporting period
+quarter: "Q1"
+year: 2026
+
+# Brand colors (hex without #)
+colors:
+  primary: "003366"        # TTEC dark navy
+  secondary: "0066CC"      # Medium blue
+  accent: "007A8C"         # TTEC teal
+  text_dark: "333333"
+  text_light: "FFFFFF"
+  background: "F5F5F5"
+  positive: "2E8B57"       # Green for positive metrics
+  negative: "CC3333"       # Red for negative metrics
+  chart_palette:
+    - "003366"
+    - "0066CC"
+    - "007A8C"
+    - "FF6600"
+    - "66CCCC"
+    - "999999"
+    - "CC3333"
+    - "8B5CF6"
+    - "F59E0B"
+    - "10B981"
+    - "6366F1"
+    - "EC4899"
+    - "14B8A6"
+
+# Fonts
+fonts:
+  title: "Calibri"
+  body: "Calibri"
+  title_size_pt: 28
+  subtitle_size_pt: 18
+  body_size_pt: 11
+  small_size_pt: 9
+
+# Output file naming
+output:
+  pptx_filename: "TTEC_Intelligence_Briefing_{quarter}_{year}.pptx"
+  xlsx_filename: "TTEC_Financial_Data_{quarter}_{year}.xlsx"
+  docx_filename: "TTEC_Detailed_Analysis_{quarter}_{year}.docx"

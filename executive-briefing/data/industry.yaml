@@ -1,0 +1,81 @@
+# =============================================================================
+# CX/BPO Industry Overview & Market Data
+# Sources: Grand View Research, Gartner, Everest Group, ISG
+# Last Updated: 2026-03-01
+# Feeds: Slide 4
+# =============================================================================
+
+market_name: "Customer Experience Business Process Outsourcing (CX BPO)"
+
+market_size:
+  current_year: 2024
+  current_value_billions: 102
+  projected_year: 2033
+  projected_value_billions: 296
+  cagr_pct: 12.8
+  source: "Grand View Research"
+
+  by_year:
+    2022: 78
+    2023: 88
+    2024: 102
+    2025: 115  # Estimated
+    2026: 130  # Estimated
+    2027: 147
+    2028: 166
+    2030: 210
+    2033: 296
+
+market_segments:
+  - name: "Voice-based CX"
+    share_pct: 42
+    growth_trend: "Declining as % of total"
+
+  - name: "Digital CX (chat, email, social)"
+    share_pct: 33
+    growth_trend: "Fastest growing segment"
+
+  - name: "Back-office BPO"
+    share_pct: 15
+    growth_trend: "Stable, automation pressure"
+
+  - name: "AI/Automation-enabled CX"
+    share_pct: 10
+    growth_trend: "Rapidly emerging, expected to reach 25%+ by 2028"
+
+geographic_distribution:
+  - region: "North America"
+    share_pct: 38
+    notes: "Largest market, nearshoring trend growing"
+
+  - region: "Europe"
+    share_pct: 28
+    notes: "Multilingual requirements driving demand"
+
+  - region: "Asia-Pacific"
+    share_pct: 22
+    notes: "Fastest growing, India & Philippines as delivery hubs"
+
+  - region: "Rest of World"
+    share_pct: 12
+    notes: "Latin America emerging as nearshore hub"
+
+key_growth_drivers:
+  - "Enterprises prioritizing CX as competitive differentiator"
+  - "Digital transformation accelerating cloud-based CX adoption"
+  - "AI and automation enabling new service models"
+  - "Cost pressure driving outsourcing of non-core functions"
+  - "Omnichannel customer engagement requirements"
+  - "Regulatory complexity increasing need for specialized providers"
+
+key_headwinds:
+  - "AI automation reducing need for human agents in Tier 1 support"
+  - "Macroeconomic uncertainty constraining enterprise IT budgets"
+  - "Wage inflation in key delivery geographies (Philippines, India)"
+  - "Data privacy regulations increasing compliance costs"
+  - "Client contract consolidation favoring larger providers"
+
+industry_concentration:
+  top_5_share_pct: 25
+  top_10_share_pct: 35
+  trend: "Consolidating through M&A — top providers gaining share"

@@ -37,3 +37,8 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
+
+# Executive Briefing generated output
+executive-briefing/output/*.pptx
+executive-briefing/output/*.xlsx
+executive-briefing/output/*.docx
