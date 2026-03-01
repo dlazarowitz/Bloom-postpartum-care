@@ -1,0 +1,332 @@
+# =============================================================================
+# Competitor Profiles & Financial Data
+# Sources: SEC/EDGAR filings, IR websites, earnings press releases, industry reports
+# FactSet fields: FF_SALES, FF_EBITDA, P_EVT_EBITDA, FF_EMPLOYEES
+# Last Updated: 2026-03-01
+# Feeds: Slides 8, 9, 10, 11, 12
+# Note: Private companies (Alorica, Foundever, Sutherland) have estimated data
+# =============================================================================
+
+# Tier classification:
+#   tier_1: Large-cap public peers with direct competitive overlap
+#   tier_2: Mid-cap or private peers with partial overlap
+
+competitors:
+  # ---- TIER 1: Large-cap direct competitors ----
+
+  - name: "Concentrix"
+    ticker: "CNXC"
+    exchange: "NASDAQ"
+    tier: 1
+    public: true
+    headquarters: "Newark, CA"
+    employees: 455000
+    fiscal_year_end: "November 30"
+    revenue_millions: 9830  # FY2025 (FYE Nov 2025)
+    revenue_growth_yoy_pct: 2.3
+    adj_ebitda_millions: 1475
+    adj_ebitda_margin_pct: 15.0
+    ev_ebitda_multiple: 7.8
+    market_cap_millions: 4200
+    recent_highlights:
+      - "Completed Webhelp acquisition integration — now largest pure-play CX company"
+      - "Investing heavily in AI-powered CX solutions (Gen AI Studio)"
+      - "Revenue diversification across 40+ languages and 70+ countries"
+      - "Announced restructuring to drive post-merger synergies"
+    strategy: "Scale through M&A + technology differentiation + global delivery"
+    key_verticals:
+      - "Technology"
+      - "Financial Services"
+      - "Healthcare"
+      - "Retail & E-commerce"
+
+  - name: "Teleperformance"
+    ticker: "TEP.PA"
+    exchange: "Euronext Paris"
+    tier: 1
+    public: true
+    headquarters: "Paris, France"
+    employees: 446000
+    fiscal_year_end: "December 31"
+    revenue_millions: 11000  # ~EUR 10.3B converted, FY2024
+    revenue_growth_yoy_pct: 1.5
+    adj_ebitda_millions: 2240
+    adj_ebitda_margin_pct: 20.4
+    ev_ebitda_multiple: 6.5
+    market_cap_millions: 8500
+    recent_highlights:
+      - "Acquired ZP Better Together for $490M (Dec 2024)"
+      - "Facing activist investor pressure on margins and AI strategy"
+      - "TP Infinity AI platform launched for enterprise clients"
+      - "Announced significant workforce optimization through AI"
+    strategy: "Global scale leader + AI transformation + specialized services"
+    key_verticals:
+      - "Technology & Media"
+      - "Financial Services"
+      - "Government"
+      - "Healthcare"
+
+  - name: "TELUS International (TELUS Digital)"
+    ticker: "TIXT"
+    exchange: "NYSE"
+    tier: 1
+    public: true
+    headquarters: "Vancouver, Canada"
+    employees: 79000
+    fiscal_year_end: "December 31"
+    revenue_millions: 2660  # FY2024
+    revenue_growth_yoy_pct: -3.5
+    adj_ebitda_millions: 590
+    adj_ebitda_margin_pct: 22.2
+    ev_ebitda_multiple: 5.8
+    market_cap_millions: 1800
+    recent_highlights:
+      - "Rebranded to TELUS Digital Experience"
+      - "Strong AI data annotation and training data business"
+      - "Integration of WillowTree acquisition (digital product development)"
+      - "Cost optimization program underway"
+    strategy: "Digital-first CX + AI data services + next-gen digital products"
+    key_verticals:
+      - "Technology & Gaming"
+      - "Financial Services"
+      - "E-commerce"
+      - "Healthcare"
+
+  - name: "TaskUs"
+    ticker: "TASK"
+    exchange: "NASDAQ"
+    tier: 1
+    public: true
+    headquarters: "San Antonio, TX"
+    employees: 65500
+    fiscal_year_end: "December 31"
+    revenue_millions: 1180  # FY2025
+    revenue_growth_yoy_pct: 24.4
+    adj_ebitda_millions: 248
+    adj_ebitda_margin_pct: 21.0
+    ev_ebitda_multiple: 8.5
+    market_cap_millions: 1500
+    recent_highlights:
+      - "Strong growth in AI services (content moderation, AI training data)"
+      - "Expanding trust & safety practice for social media platforms"
+      - "Higher margins than most peers due to specialized service mix"
+      - "Geographic expansion into Latin America and India"
+    strategy: "Digital-native specialized CX + AI/Trust & Safety + high-margin model"
+    key_verticals:
+      - "Social Media & Technology"
+      - "E-commerce & FinTech"
+      - "Health & Wellness"
+      - "AI & Machine Learning"
+
+  # ---- TIER 2: Mid-cap and private competitors ----
+
+  - name: "Conduent"
+    ticker: "CNDT"
+    exchange: "NASDAQ"
+    tier: 2
+    public: true
+    headquarters: "Florham Park, NJ"
+    employees: 51000
+    fiscal_year_end: "December 31"
+    revenue_millions: 3040  # FY2025
+    revenue_growth_yoy_pct: -5.5
+    adj_ebitda_millions: 164
+    adj_ebitda_margin_pct: 5.4
+    ev_ebitda_multiple: 4.5
+    market_cap_millions: 800
+    recent_highlights:
+      - "Turnaround strategy focused on government and transportation verticals"
+      - "Divested non-core businesses to simplify portfolio"
+      - "Investing in digital government solutions"
+      - "Margin improvement from operational restructuring"
+    strategy: "Government-focused BPO + digital transformation + portfolio simplification"
+    key_verticals:
+      - "Government"
+      - "Transportation"
+      - "Healthcare"
+      - "Commercial Industries"
+
+  - name: "ExlService Holdings"
+    ticker: "EXLS"
+    exchange: "NASDAQ"
+    tier: 2
+    public: true
+    headquarters: "New York, NY"
+    employees: 65000
+    fiscal_year_end: "December 31"
+    revenue_millions: 2090  # FY2025
+    revenue_growth_yoy_pct: 13.5
+    adj_ebitda_millions: 408
+    adj_ebitda_margin_pct: 19.5
+    ev_ebitda_multiple: 18.5
+    market_cap_millions: 7800
+    recent_highlights:
+      - "Strong analytics and AI-driven growth outpacing pure BPO peers"
+      - "Data analytics segment growing 20%+ annually"
+      - "Premium valuation reflecting analytics/AI positioning"
+      - "Expanding insurance and healthcare verticals"
+    strategy: "Analytics-led transformation + AI/data science + domain expertise"
+    key_verticals:
+      - "Insurance"
+      - "Banking & Financial Services"
+      - "Healthcare"
+      - "Analytics"
+
+  - name: "WNS Holdings"
+    ticker: "WNS"
+    exchange: "NYSE (delisted Oct 2025)"
+    tier: 2
+    public: false  # Acquired by Capgemini in Oct 2025
+    headquarters: "Mumbai, India"
+    employees: 64500
+    fiscal_year_end: "March 31"
+    revenue_millions: 1310  # FY2025 (ending Mar 2025)
+    revenue_growth_yoy_pct: 1.5
+    adj_ebitda_millions: 231
+    adj_ebitda_margin_pct: 17.6
+    ev_ebitda_multiple: 14.3  # Acquisition multiple (Capgemini paid $3.3B)
+    market_cap_millions: 3300  # Acquisition value
+    recent_highlights:
+      - "Acquired by Capgemini for $3.3B (completed Oct 2025)"
+      - "Now part of Capgemini's intelligent operations practice"
+      - "Strong positioning in insurance and travel BPO"
+      - "Integration with Capgemini's consulting and AI capabilities underway"
+    strategy: "Domain-specific BPO + process automation (now under Capgemini)"
+    key_verticals:
+      - "Insurance"
+      - "Travel & Leisure"
+      - "Healthcare"
+      - "Utilities"
+
+  - name: "Genpact"
+    ticker: "G"
+    exchange: "NYSE"
+    tier: 2
+    public: true
+    headquarters: "New York, NY"
+    employees: 146500
+    fiscal_year_end: "December 31"
+    revenue_millions: 5080  # FY2025
+    revenue_growth_yoy_pct: 8.5
+    adj_ebitda_millions: 889
+    adj_ebitda_margin_pct: 17.5
+    ev_ebitda_multiple: 12.0
+    market_cap_millions: 8200
+    recent_highlights:
+      - "Strong growth in digital operations and data-tech-AI segment"
+      - "AI-powered transformation driving higher-value engagements"
+      - "Cora AI platform gaining enterprise traction"
+      - "Expanding financial services and consumer goods verticals"
+    strategy: "Digital transformation partner + AI/data-led services + process innovation"
+    key_verticals:
+      - "Banking & Financial Services"
+      - "Consumer Goods"
+      - "Life Sciences"
+      - "Insurance"
+
+  - name: "Hinduja Global Solutions"
+    ticker: "HGS.NS"
+    exchange: "NSE India"
+    tier: 2
+    public: true
+    headquarters: "Bangalore, India"
+    employees: 18300
+    fiscal_year_end: "March 31"
+    revenue_millions: 586  # FY2025 (INR 49.56B converted ~$586M)
+    revenue_growth_yoy_pct: -8.0
+    adj_ebitda_millions: 82
+    adj_ebitda_margin_pct: 14.0
+    ev_ebitda_multiple: 6.0
+    market_cap_millions: 550
+    recent_highlights:
+      - "Divested healthcare services business to focus on CX"
+      - "Expanding digital CX and automation capabilities"
+      - "Strong India and Philippines delivery presence"
+      - "Part of Hinduja Group conglomerate"
+    strategy: "Mid-market CX specialist + India delivery + digital transformation"
+    key_verticals:
+      - "Healthcare"
+      - "Banking & Financial Services"
+      - "Telecommunications"
+      - "Government"
+
+  # ---- PRIVATE COMPETITORS ----
+  # Financial data is estimated from industry reports and press releases
+
+  - name: "Alorica"
+    ticker: null
+    exchange: null
+    tier: 2
+    public: false
+    headquarters: "Irvine, CA"
+    employees: 85000  # Estimated
+    fiscal_year_end: "December 31"
+    revenue_millions: 5700  # H1 2025 run rate estimate (~$2.85B H1)
+    revenue_growth_yoy_pct: null
+    adj_ebitda_millions: null
+    adj_ebitda_margin_pct: null
+    ev_ebitda_multiple: null
+    market_cap_millions: null
+    recent_highlights:
+      - "One of the largest private CX companies globally"
+      - "Strong North American and APAC delivery presence"
+      - "Invested in AI-driven workforce management solutions"
+      - "Owned by Alorica Holdings (private equity-backed)"
+    strategy: "Scale-based cost leadership + domestic and nearshore delivery"
+    key_verticals:
+      - "Financial Services"
+      - "Telecommunications"
+      - "Healthcare"
+      - "Technology"
+
+  - name: "Foundever (formerly Sitel)"
+    ticker: null
+    exchange: null
+    tier: 2
+    public: false
+    headquarters: "Luxembourg"
+    employees: 150000
+    fiscal_year_end: "December 31"
+    revenue_millions: 4000  # Estimated from industry rankings
+    revenue_growth_yoy_pct: null
+    adj_ebitda_millions: null
+    adj_ebitda_margin_pct: null
+    ev_ebitda_multiple: null
+    market_cap_millions: null
+    recent_highlights:
+      - "Rebranded from Sitel Group to Foundever in 2023"
+      - "Global presence across 45+ countries"
+      - "Investing in AI-first CX solutions"
+      - "Owned by Synnex (now TD Synnex) following 2021 merger"
+    strategy: "Global scale + AI-first transformation + multilingual capabilities"
+    key_verticals:
+      - "Telecommunications"
+      - "Financial Services"
+      - "Retail"
+      - "Technology"
+
+  - name: "Sutherland Global"
+    ticker: null
+    exchange: null
+    tier: 2
+    public: false
+    headquarters: "Pittsford, NY"
+    employees: 40000
+    fiscal_year_end: "December 31"
+    revenue_millions: 1500  # Estimated
+    revenue_growth_yoy_pct: null
+    adj_ebitda_millions: null
+    adj_ebitda_margin_pct: null
+    ev_ebitda_multiple: null
+    market_cap_millions: null
+    recent_highlights:
+      - "Strong banking and financial services focus"
+      - "Investing in AI-powered process automation (Sutherland Labs)"
+      - "Digital transformation consulting alongside BPO services"
+      - "Growing mortgage and lending services practice"
+    strategy: "Domain expertise in BFSI + digital process transformation + AI labs"
+    key_verticals:
+      - "Banking & Financial Services"
+      - "Insurance"
+      - "Healthcare"
+      - "Retail & CPG"

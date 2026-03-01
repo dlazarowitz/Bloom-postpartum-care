@@ -1,0 +1,94 @@
+# =============================================================================
+# Regulatory & Macro Environment
+# Sources: Government publications, industry press, company filings
+# Last Updated: 2026-03-01
+# Feeds: Slide 17
+# =============================================================================
+
+regulatory_landscape:
+  - area: "Data Privacy & Protection"
+    developments:
+      - "GDPR enforcement continuing to increase fines for data handling violations"
+      - "US state-level privacy laws expanding (California, Virginia, Colorado, Connecticut, Utah)"
+      - "No comprehensive federal US privacy law yet, but momentum building"
+      - "India Digital Personal Data Protection Act implementation underway"
+    impact_on_cx: "Increasing compliance costs, data localization requirements, limits on offshore data processing"
+    risk_level: "Medium"
+
+  - area: "AI Regulation"
+    developments:
+      - "EU AI Act effective August 2025 — high-risk AI systems require transparency and human oversight"
+      - "US executive order on AI safety — voluntary compliance framework for enterprises"
+      - "Growing requirements for AI explainability in customer-facing applications"
+    impact_on_cx: "CX providers must ensure AI deployments meet transparency and bias standards"
+    risk_level: "Medium-High"
+
+  - area: "Labor & Employment"
+    developments:
+      - "Philippines PEZA incentives under review — potential impact on BPO tax benefits"
+      - "India labor code reforms increasing compliance complexity"
+      - "US gig economy regulations affecting flexible CX staffing models"
+      - "European Works Council requirements for restructuring/offshoring"
+    impact_on_cx: "Compliance costs increasing, workforce flexibility potentially constrained"
+    risk_level: "Medium"
+
+  - area: "Trade & Tariffs"
+    developments:
+      - "US-China trade tensions impacting technology supply chains"
+      - "Services outsourcing generally exempt from tariffs, but political risk increasing"
+      - "Nearshoring incentives in US and EU supporting domestic/nearshore delivery"
+    impact_on_cx: "Accelerating nearshore shift, potential regulatory barriers to offshore"
+    risk_level: "Low-Medium"
+
+macroeconomic_environment:
+  global_gdp_growth_2026_pct: 2.8
+  us_gdp_growth_2026_pct: 2.0
+  us_unemployment_pct: 4.2
+  us_inflation_pct: 2.8
+
+  interest_rates:
+    us_fed_funds_pct: 4.25
+    trend: "Expected to decline gradually through 2026"
+    impact: "Lower rates would reduce TTEC's debt service costs (~$825M net debt)"
+
+  fx_considerations:
+    - pair: "USD/PHP"
+      impact: "TTEC has significant Philippines operations; weak PHP benefits USD-reported margins"
+    - pair: "USD/INR"
+      impact: "India delivery costs benefit from INR depreciation"
+    - pair: "EUR/USD"
+      impact: "European revenue exposed to EUR weakness"
+
+enterprise_it_spending:
+  outlook: "Moderate growth (5-7%) with AI-related spending accelerating"
+  cx_budget_trend: "Stable to slightly increasing as companies invest in digital CX"
+  risk_factors:
+    - "Potential recession could lead to budget cuts and contract renegotiation"
+    - "AI investment crowding out traditional outsourcing spend"
+    - "CFO scrutiny on outsourcing ROI intensifying"
+
+key_risks_summary:
+  - risk: "AI regulation compliance costs"
+    likelihood: "High"
+    impact: "Medium"
+    mitigation: "Early investment in AI governance frameworks"
+
+  - risk: "Data privacy enforcement"
+    likelihood: "High"
+    impact: "Medium"
+    mitigation: "Data localization and compliance infrastructure"
+
+  - risk: "Offshore tax incentive changes (Philippines)"
+    likelihood: "Medium"
+    impact: "High"
+    mitigation: "Geographic diversification of delivery"
+
+  - risk: "Economic downturn impacting client budgets"
+    likelihood: "Medium"
+    impact: "High"
+    mitigation: "Outcome-based pricing, essential service positioning"
+
+  - risk: "Protectionist trade policy"
+    likelihood: "Low-Medium"
+    impact: "Medium"
+    mitigation: "Nearshore expansion, US delivery capabilities"

@@ -1,0 +1,92 @@
+# =============================================================================
+# Capital Allocation Analysis
+# Sources: SEC filings, earnings press releases, IR presentations
+# FactSet fields: FF_NET_DEBT, FF_DEBT_TOT, FF_DIV_YLD, FF_SHR_REPURCHASE
+# Last Updated: 2026-03-01
+# Feeds: Slide 14
+# =============================================================================
+
+ttec:
+  name: "TTEC Holdings"
+  balance_sheet:
+    net_debt_millions: 825
+    gross_debt_millions: 950  # Estimated
+    cash_millions: 125  # Estimated
+    net_leverage_ratio: 3.58
+    prior_year_leverage_ratio: 3.99
+    credit_facility_type: "Revolving credit facility"
+
+  capital_deployment_fy2025:
+    debt_reduction_millions: 68
+    capex_millions: 55  # Estimated
+    acquisitions_millions: 0
+    dividends_millions: 15  # Estimated
+    buybacks_millions: 0
+
+  ma_capacity:
+    available_revolver_millions: 200  # Estimated
+    target_leverage_ratio: 3.0
+    estimated_acquisition_capacity_millions: 150
+    notes: "Limited M&A capacity until leverage drops below 3.0x; focus on debt paydown"
+
+  dividend:
+    annual_per_share: 0.52
+    yield_pct: 6.9  # At ~$7.50 stock price
+    payout_status: "Active"
+
+peer_capital_allocation:
+  - name: "Concentrix"
+    net_leverage_ratio: 3.2
+    fy_debt_reduction_millions: 400
+    fy_acquisitions_millions: 0
+    fy_buybacks_millions: 50
+    dividend_yield_pct: 1.8
+    strategy: "Post-Webhelp deleveraging, minimal M&A"
+
+  - name: "Teleperformance"
+    net_leverage_ratio: 2.1
+    fy_debt_reduction_millions: 200
+    fy_acquisitions_millions: 490  # ZP Better Together
+    fy_buybacks_millions: 300
+    dividend_yield_pct: 3.5
+    strategy: "Balanced — acquisitions + buybacks + dividends"
+
+  - name: "TaskUs"
+    net_leverage_ratio: 0.5
+    fy_debt_reduction_millions: 50
+    fy_acquisitions_millions: 0
+    fy_buybacks_millions: 100
+    dividend_yield_pct: 0.0
+    strategy: "Conservative balance sheet, opportunistic buybacks"
+
+  - name: "ExlService"
+    net_leverage_ratio: 0.8
+    fy_debt_reduction_millions: 0
+    fy_acquisitions_millions: 50
+    fy_buybacks_millions: 150
+    dividend_yield_pct: 0.0
+    strategy: "Organic growth focus, selective tuck-in acquisitions"
+
+  - name: "Genpact"
+    net_leverage_ratio: 1.5
+    fy_debt_reduction_millions: 100
+    fy_acquisitions_millions: 75
+    fy_buybacks_millions: 200
+    dividend_yield_pct: 1.2
+    strategy: "Balanced return of capital + bolt-on M&A"
+
+  - name: "WNS Holdings"
+    net_leverage_ratio: 0.3
+    fy_debt_reduction_millions: 0
+    fy_acquisitions_millions: 25
+    fy_buybacks_millions: 75
+    dividend_yield_pct: 0.0
+    strategy: "Very conservative, strong cash position, potential M&A target"
+
+key_observations:
+  - "TTEC has the highest leverage in the peer group at 3.58x — debt reduction is priority #1"
+  - "Analytics-led peers (EXLS, WNS) maintain conservative balance sheets with low leverage"
+  - "Teleperformance is most aggressive in capital deployment across all categories"
+  - "TTEC's M&A capacity is constrained until leverage drops below 3.0x"
+  - "TTEC's dividend yield is highest in peer group, reflecting depressed stock price"
+  - "Peer valuations suggest potential for TTEC re-rating if deleveraging executes as planned"

@@ -1,0 +1,79 @@
+# =============================================================================
+# M&A Transactions in CX/BPO Industry
+# Sources: Press releases, SEC filings, news articles
+# FactSet: M&A database for deal values and multiples
+# Last Updated: 2026-03-01
+# Feeds: Slide 16
+# =============================================================================
+
+recent_transactions:
+  - date: "2024-12"
+    acquirer: "Teleperformance"
+    target: "ZP Better Together"
+    deal_value_millions: 490
+    ev_revenue_multiple: null
+    ev_ebitda_multiple: null
+    rationale: "Expanded Eastern European delivery capabilities and client base"
+    status: "Completed"
+
+  - date: "2024-11"
+    acquirer: "Concentrix"
+    target: "Webhelp (integration)"
+    deal_value_millions: 4800  # Original 2023 deal value
+    ev_revenue_multiple: 1.8
+    ev_ebitda_multiple: 12.0
+    rationale: "Created largest pure-play CX company; integration ongoing through 2025"
+    status: "Integration ongoing"
+
+  - date: "2025-10"
+    acquirer: "Capgemini"
+    target: "WNS Holdings"
+    deal_value_millions: 3300
+    ev_revenue_multiple: 2.5
+    ev_ebitda_multiple: 14.3
+    rationale: "Created global leader in agentic AI-powered intelligent operations; combines consulting with BPO delivery"
+    status: "Completed"
+
+  - date: "2024-Q4"
+    acquirer: "Fusion CX"
+    target: "S4 (various assets)"
+    deal_value_millions: null
+    ev_revenue_multiple: null
+    ev_ebitda_multiple: null
+    rationale: "Consolidation of mid-market CX assets"
+    status: "Completed"
+
+  - date: "2023-09"
+    acquirer: "TELUS International"
+    target: "WillowTree"
+    deal_value_millions: 1200
+    ev_revenue_multiple: 6.5
+    ev_ebitda_multiple: null
+    rationale: "Added digital product development capabilities to CX portfolio"
+    status: "Completed, integration ongoing"
+
+key_themes:
+  - "Scale consolidation: Top providers acquiring to gain market share and delivery footprint"
+  - "Technology bolt-ons: CX companies acquiring AI, analytics, and digital capabilities"
+  - "Vertical specialization: Deals focused on industry-specific expertise"
+  - "Geographic expansion: Acquisitions for nearshore/offshore delivery capacity"
+  - "PE activity: Private equity continuing to invest in mid-market CX platforms"
+
+valuation_benchmarks:
+  ev_revenue_range:
+    low: 0.8
+    median: 1.5
+    high: 3.0
+    notes: "Wide range depending on growth profile and AI capabilities"
+
+  ev_ebitda_range:
+    low: 5.0
+    median: 9.0
+    high: 15.0
+    notes: "Premium for high-growth, analytics-led businesses (ExlService)"
+
+pipeline_outlook: >
+  Industry consolidation expected to continue in 2026 driven by:
+  AI capability acquisition, geographic delivery rationalization,
+  and private equity portfolio optimization. Mid-market CX companies
+  ($500M-$2B revenue) are the most likely targets.

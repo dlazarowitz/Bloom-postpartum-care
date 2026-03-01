@@ -1,0 +1,104 @@
+# =============================================================================
+# Labor & Talent Analytics
+# Sources: BLS, industry surveys, Everest Group, company filings
+# Last Updated: 2026-03-01
+# Feeds: Slide 15
+# =============================================================================
+
+industry_workforce:
+  total_global_cx_bpo_employees: 4500000  # Estimated
+  top_delivery_geographies:
+    - country: "India"
+      employees_estimate: 1200000
+      avg_annual_wage_usd: 6500
+      wage_growth_yoy_pct: 8.5
+      attrition_rate_pct: 35
+      trend: "Continued growth but wage inflation accelerating"
+
+    - country: "Philippines"
+      employees_estimate: 1500000
+      avg_annual_wage_usd: 7000
+      wage_growth_yoy_pct: 7.0
+      attrition_rate_pct: 30
+      trend: "Mature market, moving up value chain to digital/AI services"
+
+    - country: "United States"
+      employees_estimate: 500000
+      avg_annual_wage_usd: 38000
+      wage_growth_yoy_pct: 4.5
+      attrition_rate_pct: 40
+      trend: "Tight labor market, work-from-home becoming standard"
+
+    - country: "Colombia"
+      employees_estimate: 200000
+      avg_annual_wage_usd: 9000
+      wage_growth_yoy_pct: 6.0
+      attrition_rate_pct: 25
+      trend: "Fastest growing nearshore hub for US market"
+
+    - country: "Mexico"
+      employees_estimate: 180000
+      avg_annual_wage_usd: 10000
+      wage_growth_yoy_pct: 5.5
+      attrition_rate_pct: 28
+      trend: "Growing nearshore option, bilingual talent pool"
+
+    - country: "South Africa"
+      employees_estimate: 100000
+      avg_annual_wage_usd: 8500
+      wage_growth_yoy_pct: 5.0
+      attrition_rate_pct: 22
+      trend: "Emerging hub for UK-facing services, favorable timezone"
+
+delivery_mix_trends:
+  - model: "Offshore (India, Philippines)"
+    current_share_pct: 55
+    projected_2028_share_pct: 48
+    trend: "Declining share as nearshore and AI replace some offshore work"
+
+  - model: "Nearshore (LatAm, Eastern Europe)"
+    current_share_pct: 20
+    projected_2028_share_pct: 25
+    trend: "Growing rapidly, especially Colombia and Mexico for US market"
+
+  - model: "Onshore (US, UK, Australia)"
+    current_share_pct: 18
+    projected_2028_share_pct: 15
+    trend: "Declining as cost pressure drives offshore/nearshore migration"
+
+  - model: "AI/Automated (no human agent)"
+    current_share_pct: 7
+    projected_2028_share_pct: 12
+    trend: "Fastest growing category, displacing Tier 1 support roles"
+
+ai_impact_on_workforce:
+  headline: "AI expected to displace 20-30% of entry-level CX roles by 2028"
+  effects:
+    - "Tier 1 support roles most vulnerable to AI agent replacement"
+    - "Complex, empathetic, and multi-step interactions remain human-dependent"
+    - "New roles emerging: AI trainers, prompt engineers, AI oversight specialists"
+    - "Average agent handling complexity increasing as AI absorbs simple queries"
+    - "Upskilling investments required to retain workforce relevance"
+
+ttec_workforce:
+  total_employees: 52000
+  delivery_locations: 20  # Countries
+  offshore_share_pct: 60
+  nearshore_share_pct: 20
+  onshore_share_pct: 20
+  attrition_rate_pct: 32  # Industry average
+  key_delivery_countries:
+    - "Philippines"
+    - "Mexico"
+    - "India"
+    - "United States"
+    - "Colombia"
+    - "Bulgaria"
+    - "Poland"
+
+key_observations:
+  - "Wage inflation in India and Philippines outpacing US inflation, narrowing cost arbitrage"
+  - "Nearshoring to Latin America accelerating — Colombia and Mexico growing 15-20% annually"
+  - "AI is displacing Tier 1 roles but creating demand for higher-skilled AI-adjacent positions"
+  - "Remote/hybrid work models reducing geographic constraints and real estate costs"
+  - "Industry attrition remains elevated (30-40%), with US market most challenging"
